@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Processing - QuickNoteML</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "creamy-peach": "#FFF0D9",
+            "dark-slate": "#1E293B",
+            "vibrant-lavender": "#A78BFA",
+            "vibrant-coral": "#FB7185",
+          },
+          fontFamily: {
+            quicksand: ["Quicksand", "sans-serif"],
+            nunito: ["Nunito", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <style type="text/tailwindcss">
+    @keyframes pulse-custom {
+      0% { transform: scale(1); opacity: .7 }
+      50% { transform: scale(1.1); opacity: 1 }
+      100% { transform: scale(1); opacity: .7 }
+    }
+
+    .animate-pulse-custom {
+      animation: pulse-custom 2s infinite;
+    }
+
+    .sticker-card {
+      border: 2px solid #1E293B;
+      box-shadow: 6px 6px 0 #1E293B;
+    }
+  </style>
+</head>
+
+<body class="bg-creamy-peach font-nunito min-h-screen flex flex-col overflow-x-hidden">
+
+<!-- HEADER -->
+<header class="flex justify-between items-center px-10 py-4">
+  <div class="flex items-center gap-3">
+    <div class="size-10 bg-vibrant-lavender border-2 border-dark-slate rounded-xl flex items-center justify-center shadow-[3px_3px_0_#1E293B]">
+      <span class="material-symbols-outlined">psychology</span>
+    </div>
+    <h2 class="text-xl font-bold font-quicksand">QuickNoteML</h2>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="flex-1 flex items-center justify-center px-4">
+  <div class="max-w-2xl w-full text-center">
+
+    <!-- AI ICON -->
+    <div class="relative flex justify-center mb-14">
+      <div class="w-52 h-52 rounded-full border-4 border-vibrant-lavender/30 absolute animate-pulse-custom"></div>
+      <div class="w-36 h-36 bg-white border-4 border-dark-slate rounded-full flex items-center justify-center shadow-[8px_8px_0_#1E293B] z-10">
+        <span class="material-symbols-outlined text-6xl text-vibrant-lavender">auto_awesome</span>
+      </div>
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="text-3xl font-quicksand font-bold text-dark-slate">
+      Analyzing your material<span id="dots">.</span>
+    </h1>
+    <p class="uppercase tracking-widest text-sm mt-2 text-dark-slate/70">
+      Deep learning magic in progress
+    </p>
+
+    <!-- PROGRESS CARD -->
+    <div class="sticker-card bg-white rounded-2xl p-8 mt-10 text-left">
+      <div class="flex justify-between items-end">
+        <p class="font-bold">Structuring your masterpiece…</p>
+        <p id="percent" class="text-vibrant-coral text-2xl font-black">1%</p>
+      </div>
+
+      <div class="h-6 bg-creamy-peach border-2 border-dark-slate rounded-full p-1 mt-4">
+        <div id="progressBar"
+             class="h-full bg-vibrant-lavender rounded-full transition-all duration-500"
+             style="width:1%">
+        </div>
+      </div>
+
+      <p class="text-sm mt-3 text-dark-slate/60 font-bold">
+        Estimated: a few seconds to go…
+      </p>
+    </div>
+
+    <!-- FOOTER TEXT -->
+    <p class="mt-10 text-sm font-bold text-dark-slate/60">
+      QuickNoteML is doodling your lecture into notes ✨
+    </p>
+  </div>
+</main>
+
+<!-- JS: ANIMATION + REDIRECT -->
+<script>
+  let percent = 1;
+  const percentText = document.getElementById("percent");
+  const bar = document.getElementById("progressBar");
+  const dots = document.getElementById("dots");
+
+  // dots animation
+  let dotCount = 1;
+  setInterval(() => {
+    dotCount = (dotCount % 3) + 1;
+    dots.textContent = ".".repeat(dotCount);
+  }, 500);
+
+  // progress animation
+  const progressInterval = setInterval(() => {
+    percent += Math.floor(Math.random() * 4) + 1;
+
+    if (percent >= 100) {
+      percent = 100;
+      clearInterval(progressInterval);
+      percentText.textContent = "Done!";
+      bar.style.width = "100%";
+
+      // redirect
+      setTimeout(() => {
+        window.location.href = "structurednoteviewer.html";
+      }, 1200);
+    } else {
+      percentText.textContent = percent + "%";
+      bar.style.width = percent + "%";
+    }
+  }, 600);
+</script>
+
+</body>
+</html>

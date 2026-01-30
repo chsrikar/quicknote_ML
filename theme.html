@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Whimsical Theme Settings - QuickNoteML</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D7BDE2",
+                        "accent-coral": "#FF6F61",
+                        "peach-bg": "#FFF0D9",
+                        "lavender-soft": "#D7BDE2",
+                        "indigo-accent": "#4f46e5",
+                        "teal-accent": "#0d9488",
+                        "purple-accent": "#9333ea",
+                        "dark-slate": "#1E293B"
+                    },
+                    fontFamily: {
+                        "display": ["Quicksand", "sans-serif"],
+                        "body": ["Nunito", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'sticker': '4px 4px 0px 0px #1E293B',
+                        'sticker-hover': '2px 2px 0px 0px #1E293B',
+                        'button-sticker': '3px 3px 0px 0px #1E293B',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        h1, h2, h3, h4, .font-header {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .theme-preview-card {
+            @apply border-2 border-dark-slate transition-all cursor-pointer rounded-2xl overflow-hidden relative bg-white shadow-sticker;
+        }
+        .theme-preview-card.active {
+            @apply ring-4 ring-accent-coral/30;
+        }
+        .theme-preview-card:hover {
+            @apply translate-x-[2px] translate-y-[2px] shadow-sticker-hover;
+        }
+        .color-card {
+            @apply border-2 border-dark-slate shadow-sticker transition-all;
+        }
+        .color-card:hover {
+            @apply translate-x-[2px] translate-y-[2px] shadow-sticker-hover;
+        }
+        .sticker-button {
+            @apply border-2 border-dark-slate shadow-button-sticker transition-all active:translate-x-[1px] active:translate-y-[1px] active:shadow-none;
+        }
+        input[type="range"] {
+            @apply h-2 bg-lavender-soft/30 rounded-lg appearance-none cursor-pointer accent-accent-coral;
+        }
+        .doodle-bg {
+            background-image: radial-gradient(#FF6F6122 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .nav-item-active {
+            @apply bg-lavender-soft text-dark-slate border-2 border-dark-slate shadow-button-sticker font-bold;
+        }
+        .tab-item-active {
+            @apply border-b-4 border-accent-coral text-dark-slate font-bold;
+        }
+    </style>
+</head>
+<body class="bg-peach-bg font-body doodle-bg">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-72 bg-white border-r border-lavender-soft/20 flex flex-col p-6 shrink-0">
+<div class="flex flex-col h-full">
+<div class="flex items-center gap-3 mb-10">
+<div class="bg-accent-coral size-12 rounded-2xl flex items-center justify-center text-white border-2 border-dark-slate shadow-button-sticker rotate-3">
+<span class="material-symbols-outlined text-2xl">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 text-lg font-bold leading-tight font-header">QuickNoteML</h1>
+<p class="text-accent-coral text-[10px] font-bold uppercase tracking-[0.2em]">Magical Learning</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-1 pb-10">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-lavender-soft/10 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-sm font-semibold">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-lavender-soft/10 transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-semibold">My Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-lavender-soft/10 transition-colors" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-sm font-semibold">Activity</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl nav-item-active transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-lavender-soft/10 transition-colors" href="#">
+<span class="material-symbols-outlined">help_center</span>
+<span class="text-sm font-semibold">Help Center</span>
+</a>
+</nav>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-lavender-soft/10 bg-white/70 backdrop-blur-md px-10 py-5">
+<div class="flex items-center gap-4">
+<h2 class="text-gray-900 text-xl font-bold tracking-tight font-header">Settings</h2>
+</div>
+<div class="flex items-center gap-6"> <a href="dashboard.html"
+ class="bg-lavender-soft text-dark-slate border-2 border-dark-slate px-5 py-2 rounded-xl text-sm font-bold shadow-button-sticker hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-sticker-hover transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">space_dashboard</span>
+                    Go to Dashboard
+</a>
+<div class="flex items-center gap-2">
+<button class="p-2.5 rounded-xl bg-white text-gray-600 hover:bg-lavender-soft/10 border border-lavender-soft/20 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="h-8 w-px bg-lavender-soft/20 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-gray-900">Alex Rivera</p>
+<p class="text-[10px] text-gray-500 font-bold">STUDENT ID: QN-8821</p>
+</div>
+<div class="size-11 rounded-full bg-cover bg-center border-2 border-accent-coral shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjHD7SpkZaqmzqvhgnAe6Bnehg8kqvuigjM37ZNMZxYfc_9SeNPTP0UxoE02Gm9ZnH3rX_bQ6U5BSLZJnC8amtjKCXS1iwEhOE1BVPaq5YccuArL_seKUgcImgOTOBH1k8w1F133jSfjvdwKRD2mDM1v9dnHmDHHFXw8NCYmp5XiBtY3WKfQkgIU7y7oDF4fj0EO7zKT98r9CF__r7-c24R5mr4G568xTPe8IBWsmr_3BVV1fGN3qL1Gx8oFBWkNCAieyK7JZ0eZKe");'></div>
+</div>
+</div>
+</header>
+<div class="bg-white/40 border-b border-lavender-soft/20 px-10">
+<div class="max-w-4xl mx-auto flex gap-8"> <a href="general.html">
+<button class="py-4 px-2 text-sm font-semibold text-gray-500 hover:text-dark-slate transition-colors">General</button></a>
+ <a href="notifications.html"><button class="py-4 px-2 text-sm font-semibold text-gray-500 hover:text-dark-slate transition-colors">Notifications</button></a>
+<button class="py-4 px-2 text-sm tab-item-active transition-all">Theme</button>
+</div>
+</div>
+<div class="max-w-4xl mx-auto px-10 py-10">
+<div class="flex flex-wrap justify-between items-end gap-6 mb-12">
+<div class="flex flex-col gap-2">
+<p class="text-gray-900 text-5xl font-black tracking-tight font-header">Whimsical Theme</p>
+<p class="text-gray-500 text-lg font-medium">Personalize your study land to boost your creativity!</p>
+</div>
+<button class="bg-lavender-soft hover:bg-lavender-soft/90 text-white px-8 py-3.5 rounded-xl text-sm font-bold sticker-button rotate-1">
+                    Save Changes
+                </button>
+</div>
+<div class="space-y-16">
+<section>
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-gray-900 text-2xl font-bold font-header">Appearance Mode</h3>
+<span class="text-xs font-bold text-white bg-accent-coral px-4 py-1.5 rounded-full border-2 border-dark-slate shadow-button-sticker">New Themes Available</span>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="theme-preview-card active p-0 group">
+<div class="bg-peach-bg/50 p-6 h-52 border-b-2 border-dark-slate">
+<div class="flex gap-2 mb-6">
+<div class="size-3.5 rounded-full bg-[#FFB3BA] border border-dark-slate"></div>
+<div class="size-3.5 rounded-full bg-[#BAFFC9] border border-dark-slate"></div>
+<div class="size-3.5 rounded-full bg-[#BAE1FF] border border-dark-slate"></div>
+</div>
+<div class="space-y-4">
+<div class="h-5 w-3/4 bg-white rounded-lg border border-dark-slate/20"></div>
+<div class="h-5 w-full bg-white/60 rounded-lg border border-dark-slate/20"></div>
+<div class="h-20 w-full border-2 border-dashed border-lavender-soft/40 rounded-xl p-3 flex gap-3 bg-white/40">
+<div class="size-6 bg-accent-coral rounded-lg border border-dark-slate/20"></div>
+<div class="flex-1 space-y-2">
+<div class="h-3 w-1/2 bg-white rounded-md"></div>
+<div class="h-2 w-full bg-white/60 rounded-md"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-coral">sunny</span>
+<span class="text-base font-bold text-gray-900 font-header">Whimsical Land</span>
+</div>
+<div class="size-6 rounded-full border-2 border-accent-coral flex items-center justify-center">
+<div class="size-3 rounded-full bg-accent-coral"></div>
+</div>
+</div>
+</div>
+<div class="theme-preview-card p-0 group">
+<div class="bg-slate-900 p-6 h-52 border-b-2 border-dark-slate">
+<div class="flex gap-2 mb-6">
+<div class="size-3.5 rounded-full bg-slate-700"></div>
+<div class="size-3.5 rounded-full bg-slate-700"></div>
+<div class="size-3.5 rounded-full bg-slate-700"></div>
+</div>
+<div class="space-y-4">
+<div class="h-5 w-3/4 bg-slate-800 rounded-lg"></div>
+<div class="h-5 w-full bg-slate-800 rounded-lg"></div>
+<div class="h-20 w-full border border-slate-700 rounded-xl p-3 flex gap-3">
+<div class="size-6 bg-lavender-soft rounded-lg"></div>
+<div class="flex-1 space-y-2">
+<div class="h-3 w-1/2 bg-slate-800 rounded-md"></div>
+<div class="h-2 w-full bg-slate-800 rounded-md"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400">dark_mode</span>
+<span class="text-base font-bold text-gray-900 font-header">Midnight Stars</span>
+</div>
+<div class="size-6 rounded-full border-2 border-gray-200"></div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h3 class="text-gray-900 text-2xl font-bold mb-6 font-header">Primary Accent Color</h3>
+<div class="grid grid-cols-3 gap-6">
+<button class="flex items-center gap-4 p-5 bg-white color-card rounded-2xl text-left">
+<div class="size-12 rounded-2xl bg-accent-coral flex items-center justify-center text-white border-2 border-dark-slate/10">
+<span class="material-symbols-outlined font-bold">check</span>
+</div>
+<div>
+<p class="text-gray-900 font-bold text-base font-header">Coral</p>
+<p class="text-gray-500 text-xs font-semibold">Playful &amp; Bright</p>
+</div>
+</button>
+<button class="flex items-center gap-4 p-5 bg-white color-card rounded-2xl text-left">
+<div class="size-12 rounded-2xl bg-teal-accent flex items-center justify-center text-white border-2 border-dark-slate/10">
+</div>
+<div>
+<p class="text-gray-900 font-bold text-base font-header">Teal</p>
+<p class="text-gray-500 text-xs font-semibold">Calm &amp; Natural</p>
+</div>
+</button>
+<button class="flex items-center gap-4 p-5 bg-white color-card rounded-2xl text-left">
+<div class="size-12 rounded-2xl bg-purple-accent flex items-center justify-center text-white border-2 border-dark-slate/10">
+</div>
+<div>
+<p class="text-gray-900 font-bold text-base font-header">Purple</p>
+<p class="text-gray-500 text-xs font-semibold">Creative &amp; Bold</p>
+</div>
+</button>
+</div>
+</section>
+<section>
+<h3 class="text-gray-900 text-2xl font-bold mb-6 font-header">Typography &amp; Magic</h3>
+<div class="bg-white rounded-2xl border-2 border-dark-slate shadow-sticker overflow-hidden divide-y-2 divide-lavender-soft/10">
+<div class="p-8">
+<div class="flex items-center justify-between mb-10">
+<div>
+<p class="text-gray-900 text-lg font-bold font-header">Note Text Size</p>
+<p class="text-gray-500 text-sm font-medium">Make your notes easy on your eyes.</p>
+</div>
+<span class="text-sm font-black text-white bg-lavender-soft px-4 py-1.5 rounded-lg border-2 border-dark-slate">16px</span>
+</div>
+<div class="relative flex items-center gap-6">
+<span class="text-sm font-black text-gray-400 uppercase tracking-tighter font-header">A</span>
+<input class="flex-1" max="100" min="0" step="25" type="range" value="50"/>
+<span class="text-2xl font-black text-gray-400 uppercase tracking-tighter font-header">A</span>
+</div>
+<div class="flex justify-between mt-4 px-8">
+<span class="text-xs text-gray-400 font-bold uppercase">Tiny</span>
+<span class="text-xs text-gray-400 font-bold uppercase">Perfect</span>
+<span class="text-xs text-gray-400 font-bold uppercase">Giant</span>
+</div>
+</div>
+<div class="p-8 flex items-center justify-between">
+<div>
+<p class="text-gray-900 text-lg font-bold font-header">High Contrast Doodles</p>
+<p class="text-gray-500 text-sm font-medium">Makes everything pop and sparkle.</p>
+</div>
+<label class="relative flex h-8 w-14 cursor-pointer items-center rounded-full bg-lavender-soft/30 p-1 transition-colors has-[:checked]:bg-accent-coral border-2 border-dark-slate">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="h-5 w-5 rounded-full bg-white border border-dark-slate shadow-sm transition-transform peer-checked:translate-x-6"></div>
+</label>
+</div>
+</div>
+</section>
+</div>
+<div class="mt-16 pt-10 border-t-2 border-dashed border-lavender-soft/30 flex justify-end gap-6">
+<button class="px-8 py-3 rounded-xl text-sm font-bold text-gray-500 hover:text-accent-coral transition-colors">
+                    Reset to Default
+                </button>
+<button class="bg-lavender-soft hover:bg-lavender-soft/90 text-white px-10 py-3.5 rounded-xl text-sm font-bold sticker-button">
+                    Update Theme
+                </button>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

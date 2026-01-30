@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About QuickNoteML | Whimsical Doodle Land</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D7BDE2",
+                        accent: "#FF6F61",
+                        "background-light": "#FFF0D9",
+                        "background-dark": "#1E293B",
+                        "text-light": "#1E293B",
+                        "text-dark": "#FFF0D9",
+                        "sticker-lavender": "#D7BDE2",
+                        "sticker-coral": "#FF6F61"
+                    },
+                    fontFamily: {
+                        display: ["Quicksand", "sans-serif"],
+                        body: ["Nunito", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #D7BDE2;
+            --accent-color: #FF6F61;
+            --bg-light: #FFF0D9;
+            --bg-dark: #1E293B;
+            --text-main: #1E293B;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-light);
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .sticker-card {
+            background: white;
+            border: 4px solid #1E293B;
+            box-shadow: 8px 8px 0px 0px #1E293B;
+            transition: all 0.2s ease;
+        }
+        .sticker-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px 0px #1E293B;
+        }
+        .dark .sticker-card {
+            background: #2D3748;
+            border-color: #D7BDE2;
+            box-shadow: 8px 8px 0px 0px #FF6F61;
+        }
+        .doodle-header {
+            border-bottom: 4px dashed #1E293B;
+        }
+        .dark .doodle-header {
+            border-bottom: 4px dashed #FF6F61;
+        }
+        .glass-footer {
+            background: rgba(255, 240, 217, 0.9);
+            border-top: 4px solid #1E293B;
+        }
+        .dark .glass-footer {
+            background: #1E293B;
+            border-top: 4px solid #FF6F61;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between px-6 py-6 lg:px-20 doodle-header">
+<div class="flex items-center gap-3">
+<div class="size-11 text-white bg-accent p-1.5 rounded-xl border-4 border-text-light shadow-[4px_4px_0px_0px_rgba(30,41,59,1)]">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-display font-bold tracking-tight text-text-light dark:text-text-dark">QuickNoteML</h2>
+</div>
+<div class="flex gap-4">
+<a href="signup.html"></a>
+    <button class="hidden md:flex min-w-[120px] cursor-pointer items-center justify-center rounded-xl h-11 px-5 bg-accent text-white text-sm font-extrabold border-4 border-text-light shadow-[4px_4px_0px_0px_rgba(30,41,59,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all">
+                Sign Up
+            </button>
+            </a>
+<a href="login.html">
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-xl h-11 px-5 bg-white text-text-light text-sm font-extrabold border-4 border-text-light shadow-[4px_4px_0px_0px_rgba(30,41,59,1)] hover:bg-primary transition-colors">
+                Login
+            </button>
+            </a>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-6 lg:px-20 py-16 gap-16">
+<div class="max-w-[1000px] w-full text-center flex flex-col items-center gap-8">
+<div class="flex flex-col gap-4">
+<span class="inline-flex items-center justify-center gap-2 text-accent font-extrabold text-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-lg">celebration</span>
+                    Get to know us
+                </span>
+<h1 class="text-6xl md:text-7xl font-display font-bold text-text-light dark:text-text-dark">Our Story</h1>
+</div>
+<div class="sticker-card p-10 md:p-14 rounded-[2rem] w-full relative">
+<div class="absolute -top-8 -right-8 w-24 h-24 bg-primary rounded-full border-4 border-text-light flex items-center justify-center -rotate-12">
+<span class="material-symbols-outlined text-4xl text-text-light">auto_stories</span>
+</div>
+<div class="absolute -bottom-6 -left-6 w-20 h-20 bg-accent rounded-2xl border-4 border-text-light flex items-center justify-center rotate-12">
+<span class="material-symbols-outlined text-4xl text-white">bolt</span>
+</div>
+<p class="text-xl md:text-2xl text-text-light dark:text-text-dark font-semibold leading-relaxed max-w-3xl mx-auto">
+                    Transform your lectures and readings into structured, AI-powered study guides in seconds. Designed for the modern student, QuickNoteML aims to empower learners worldwide through creative exploration and approachability.
+                </p>
+</div>
+</div>
+<div class="max-w-[1200px] w-full grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="sticker-card p-8 rounded-3xl flex flex-col items-center text-center gap-6">
+<div class="size-20 bg-sticker-lavender rounded-full border-4 border-text-light flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(30,41,59,1)]">
+<span class="material-symbols-outlined text-4xl text-text-light">rocket_launch</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-text-light dark:text-text-dark">The Mission</h3>
+<p class="text-text-light/80 dark:text-text-dark/80 font-bold">Empowering every student to reach their full potential through intuitive AI tools.</p>
+</div>
+<div class="sticker-card p-8 rounded-3xl flex flex-col items-center text-center gap-6">
+<div class="size-20 bg-sticker-coral rounded-full border-4 border-text-light flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(30,41,59,1)]">
+<span class="material-symbols-outlined text-4xl text-white">groups</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-text-light dark:text-text-dark">The Team</h3>
+<p class="text-text-light/80 dark:text-text-dark/80 font-bold">A group of creative thinkers and tech wizards passionate about education.</p>
+</div>
+<div class="sticker-card p-8 rounded-3xl flex flex-col items-center text-center gap-6">
+<div class="size-20 bg-sticker-lavender rounded-full border-4 border-text-light flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(30,41,59,1)]">
+<span class="material-symbols-outlined text-4xl text-text-light">neurology</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-text-light dark:text-text-dark">The Tech</h3>
+<p class="text-text-light/80 dark:text-text-dark/80 font-bold">Harnessing cutting-edge AI to turn noise into knowledge effortlessly.</p>
+</div>
+</div>
+</main>
+<footer class="glass-footer w-full mt-auto">
+<div class="mx-auto max-w-[1200px] px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-10">
+
+<p class="text-text-light/60 dark:text-primary/60 text-xs font-extrabold uppercase tracking-widest text-center">
+                © 2024 QuickNoteML • Lab Powered Learning
+            </p>
+</div>
+</footer>
+</div>
+
+</body></html>

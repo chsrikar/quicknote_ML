@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Whimsical Summary Refiner Workspace - QuickNoteML</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "peach": "#FFF0D9",
+                "lavender": "#D7BDE2",
+                "coral": "#FF6F61",
+                "soft-lavender": "#E8DAEF",
+                "deep-lavender": "#C39BD3",
+                "dark-slate": "#1E293B"
+              },
+              fontFamily: {
+                "display": ["Quicksand", "sans-serif"],
+                "body": ["Nunito", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+              boxShadow: {
+                'sticker': '4px 4px 0px 0px #1E293B',
+                'sticker-lg': '8px 8px 0px 0px #1E293B',
+                'sticker-hover': '2px 2px 0px 0px #1E293B',
+              }
+            },
+          },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .whimsical-workspace {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #1E293B;
+            box-shadow: 12px 12px 0px 0px #1E293B;
+        }
+        .sticker-btn {
+            border: 2px solid #1E293B;
+            box-shadow: 4px 4px 0px 0px #1E293B;
+            transition: all 0.1s ease-in-out;
+        }
+        .sticker-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #1E293B;
+        }
+        .doodle-bg {
+            background-color: #FFF0D9;
+            background-image: radial-gradient(#FF6F61 0.8px, transparent 0.8px);
+            background-size: 32px 32px;
+        }
+        .nav-border {
+            border-bottom: 2px solid #1E293B;
+            box-shadow: 0px 4px 0px 0px #1E293B;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #FFF0D9;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D7BDE2;
+            border-radius: 10px;
+            border: 2px solid #1E293B;
+        }
+    </style>
+</head>
+<body class="bg-peach font-body text-dark-slate min-h-screen doodle-bg">
+<header class="sticky top-0 z-50 flex items-center justify-between bg-white px-8 py-4 nav-border">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-coral rounded-full flex items-center justify-center text-white border-2 border-dark-slate shadow-sticker">
+<span class="material-symbols-outlined">magic_button</span>
+</div>
+<h2 class="text-dark-slate font-display text-2xl font-bold tracking-tight">QuickNoteML</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#636f88] font-display font-semibold hover:text-coral transition-colors" href="#">Dashboard</a>
+<a class="text-[#636f88] font-display font-semibold hover:text-coral transition-colors" href="#">My Library</a>
+<a class="bg-lavender px-4 py-1.5 rounded-full text-[#4A235A] font-display font-bold border-2 border-dark-slate shadow-sticker" href="#">AI Tools</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-white border-2 border-dark-slate rounded-full px-4 py-1.5 w-64 shadow-sticker">
+<span class="material-symbols-outlined text-coral">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-[#AAB7B8] font-body" placeholder="Search my magic..." type="text"/>
+</div>
+<div class="h-10 w-10 rounded-full border-2 border-dark-slate bg-cover bg-center shadow-sticker" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBileQotZi-EQw1SIL3L49eyRuIkGZM4n_gYSjMt4O8XVTL3-dlBz3nG3BSiRwOXCB2bGJaNSdQJgwKd8uASjFrUKFe9Q2KEQ33KlmPFaSe5LOLq4uAbp7J4YpxgLhGwYIfiIKuSdn-kmZBSJwyIOuylhawLorcHptOWcHUrmilqiCxl57PmLNcMbb8RBaL1Rrn-a14QfbyVkMOq8TX6Zb1yoB9_tmEHKbbvB6BwVZmIMghr2Hp12f4vTT4EZK0VVQY0aS1hsYNCYg");'></div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-6 py-12 relative">
+<div class="absolute top-4 left-4 pointer-events-none opacity-20">
+<span class="material-symbols-outlined text-6xl text-coral rotate-12">temp_preferences_custom</span>
+</div>
+<div class="absolute bottom-4 right-4 pointer-events-none opacity-20">
+<span class="material-symbols-outlined text-6xl text-lavender -rotate-12">auto_awesome</span>
+</div>
+<div class="mb-8 flex items-end justify-between">
+<div class="flex items-start gap-5">
+<a href="aitools.html" aria-label="Back to AI Tools">
+  <div
+    class="flex items-center justify-center size-12 bg-lavender rounded-full border-2 border-dark-slate shadow-sticker hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-sticker-hover transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none group mt-1"
+  >
+    <span class="material-symbols-outlined text-dark-slate font-bold transition-transform group-hover:-translate-x-0.5">
+      arrow_back
+    </span>
+  </div>
+</a>
+
+<div>
+<h1 class="font-display text-4xl font-bold text-dark-slate mb-2">Summary Refiner Workspace</h1>
+<p class="text-lg text-[#636f88] font-body">Refine your notes into magical masterpieces.</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-white border-2 border-dark-slate rounded-full font-display font-bold shadow-sticker hover:bg-peach transition-colors">Save to Library</button>
+<button class="px-4 py-2 bg-white border-2 border-dark-slate rounded-full font-display font-bold shadow-sticker hover:bg-peach transition-colors">Export PDF</button>
+</div>
+</div>
+<div class="whimsical-workspace rounded-[2rem] overflow-hidden flex flex-col md:flex-row h-[700px]">
+<div class="flex-1 flex flex-col border-r-2 border-dark-slate p-8">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-coral">description</span>
+<h3 class="font-display text-xl font-bold text-dark-slate uppercase tracking-wider">Original Notes</h3>
+</div>
+<textarea class="flex-1 w-full p-6 bg-white border-2 border-dashed border-dark-slate rounded-xl font-body text-lg resize-none focus:ring-2 focus:ring-coral focus:border-coral custom-scrollbar" placeholder="Paste your messy lecture notes here or drag a file..."></textarea>
+<div class="mt-4 flex justify-between items-center text-sm font-bold text-[#636f88]">
+<span>Character Count: 0</span>
+<span>Language: English</span>
+</div>
+</div>
+<div class="w-full md:w-64 bg-lavender/30 border-r-2 border-dark-slate p-6 flex flex-col gap-8 justify-center items-center">
+<div class="w-full">
+<label class="block font-display font-bold text-dark-slate mb-3 text-center">Refinement Style</label>
+<div class="relative group">
+<select class="w-full bg-white border-2 border-dark-slate rounded-xl py-3 px-4 font-display font-bold shadow-sticker appearance-none focus:ring-0 cursor-pointer">
+<option value="busy-bee">The Busy Bee 🐝</option>
+<option value="storyteller">The Storyteller 📖</option>
+<option value="scholar">The Scholar 🎓</option>
+<option value="lightning">Lightning Flash ⚡</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+<p class="mt-3 text-xs text-center text-[#636f88] font-body px-2 italic">"The Busy Bee" focuses on actionable bullet points and key dates.</p>
+</div>
+<div class="w-full flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<span class="text-xs font-bold font-display uppercase">Detail Level</span>
+<span class="text-xs font-bold font-display text-coral">MEDIUM</span>
+</div>
+<input class="w-full h-2 bg-white rounded-lg appearance-none cursor-pointer border-2 border-dark-slate accent-coral" type="range"/>
+</div>
+<button class="sticker-btn bg-coral text-white font-display font-black text-xl px-6 py-4 rounded-xl w-full flex flex-col items-center gap-1">
+                    Refine Now! 🪄
+                    <span class="text-[10px] uppercase tracking-widest font-bold">Costs 2 Sparkles</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col p-8 bg-white relative">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-coral">celebration</span>
+<h3 class="font-display text-xl font-bold text-dark-slate uppercase tracking-wider">Magical Summary</h3>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border-2 border-dark-slate rounded-lg hover:bg-peach shadow-sticker-hover"><span class="material-symbols-outlined text-sm">content_copy</span></button>
+<button class="p-2 border-2 border-dark-slate rounded-lg hover:bg-peach shadow-sticker-hover"><span class="material-symbols-outlined text-sm">share</span></button>
+</div>
+</div>
+<div class="flex-1 border-2 border-dark-slate rounded-xl p-8 bg-white overflow-y-auto custom-scrollbar">
+<div class="prose prose-slate max-w-none font-body">
+<div class="flex items-center justify-center h-full flex-col text-center opacity-40">
+<span class="material-symbols-outlined text-6xl mb-4">temp_preferences_custom</span>
+<p class="text-xl font-display font-bold">Your refined summary will appear here like magic...</p>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-4">
+<button class="flex-1 py-2 bg-soft-lavender border-2 border-dark-slate rounded-lg font-display font-bold shadow-sticker hover:bg-lavender transition-all">Generate Quiz</button>
+<button class="flex-1 py-2 bg-soft-lavender border-2 border-dark-slate rounded-lg font-display font-bold shadow-sticker hover:bg-lavender transition-all">Make Flashcards</button>
+</div>
+</div>
+</div>
+<div class="mt-12 flex items-center justify-center">
+<div class="bg-white border-2 border-dark-slate rounded-2xl px-8 py-4 shadow-sticker flex items-center gap-4">
+<div class="size-10 bg-coral/20 rounded-full flex items-center justify-center text-coral border-2 border-dark-slate">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<p class="font-body font-semibold italic text-dark-slate">
+                    Pro Tip: Use "The Storyteller" mode for history notes to turn dates into epic legends!
+                </p>
+</div>
+</div>
+</main>
+<footer class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t-2 border-dark-slate px-6 py-4 flex justify-around items-center z-50">
+<button class="flex flex-col items-center gap-1 text-[#636f88]">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-display font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#636f88]">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="text-[10px] font-display font-bold">Library</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-coral">
+<span class="material-symbols-outlined">magic_button</span>
+<span class="text-[10px] font-display font-bold">Refiner</span>
+</button>
+</footer>
+
+</body></html>

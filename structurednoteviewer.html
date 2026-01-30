@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Whimsical Structured Notes Viewer - QuickNoteML</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    @layer base {
+        body {
+            @apply font-['Nunito'] text-[#4A3F35];
+        }
+        h1, h2, h3, h4, .font-display {
+            @apply font-['Quicksand'] font-bold;
+        }
+    }
+    :root {
+        --primary: #D7BDE2;
+        --accent: #FF6F61;
+        --bg-cream: #FFF0D9;
+        --paper: #FFFFFF;
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .doodle-border {
+        border: 2px solid #4A3F35;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    }
+    .doodle-card {
+        background: var(--paper);
+        border: 2px solid #4A3F35;
+        box-shadow: 4px 4px 0px 0px #4A3F35;
+        border-radius: 12px;
+    }
+    .whimsical-nav-item {
+        @apply relative transition-all duration-200;
+    }
+    .whimsical-nav-item.active::after {
+        content: '';
+        @apply absolute -bottom-1 left-0 w-full h-1 bg-[var(--primary)] rounded-full;
+        border: 1px solid #4A3F35;
+    }
+    .soft-shadow {
+        box-shadow: 3px 3px 0px 0px var(--primary);
+    }
+</style>
+<script id="tailwind-config">
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#D7BDE2",
+                    "accent": "#FF6F61",
+                    "cream": "#FFF0D9",
+                    "ink": "#4A3F35"
+                },
+            },
+        },
+    }
+</script>
+</head>
+<body class="bg-cream min-h-screen">
+<header class="sticky top-0 z-50 flex items-center justify-between border-b-2 border-ink bg-white/90 backdrop-blur-sm px-6 py-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-accent rounded-full flex items-center justify-center text-white border-2 border-ink shadow-[2px_2px_0px_0px_rgba(74,63,53,1)]">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<h2 class="text-ink text-2xl font-bold tracking-tight">QuickNoteML</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-ink/70 hover:text-accent font-semibold transition-colors" href="#">Dashboard</a>
+<a class="text-ink whimsical-nav-item active font-bold" href="#">Quick notes</a>
+<a class="text-ink/70 hover:text-accent font-semibold transition-colors" href="aitools.html">AI Tools</a>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<div class="hidden sm:flex items-center bg-white border-2 border-ink rounded-full px-4 py-1.5 w-64 shadow-[2px_2px_0px_0px_rgba(74,63,53,1)]">
+<span class="material-symbols-outlined text-ink/50 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-ink/40 font-semibold" placeholder="Search my doodles..." type="text"/>
+</div>
+<button class="p-2 hover:bg-primary/20 rounded-full transition-colors border-2 border-transparent hover:border-ink">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-ink bg-cover bg-center shadow-[2px_2px_0px_0px_rgba(74,63,53,1)]" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxwZ-GPIDY-t5zBXS3o0tlLj2FbhbftskVbV_2ENjUFlj55kCw_Cc8gwvHqjqs5RXvAGBK--sICRMWqQyFizVA5cI-fy4ecTEO2-afYBcQmLBpRYgCZeh6C-CG_O_KC3hAXWqcc7yPjuVENhVaOF1sfkrcZPb4MpTUBB3enRqRGWSnqgpNam7C22se2nqnqy2wLT0H-uSjC_itp_1PPE-KhrdjwJh9OFHQOs1ePR_SsjZnkWVDhcpOPKUjmXLI1t2HeTMFlLCRjw");'></div>
+</div>
+</header>
+
+<main class="max-w-[1440px] mx-auto px-4 lg:px-8 py-10">
+<div class="grid grid-cols-12 gap-8 items-start">
+
+<!-- Sidebar Left -->
+<aside class="hidden lg:flex lg:col-span-3 flex-col gap-8 sticky top-28">
+<div class="doodle-card p-6">
+<div class="flex items-center gap-2 mb-6 text-sm font-bold uppercase tracking-widest text-accent">
+<span class="material-symbols-outlined text-lg">description</span>
+Source Paper
+</div>
+<div class="flex items-start gap-4 mb-8">
+<div class="p-3 bg-accent/20 text-accent rounded-xl border-2 border-ink">
+<span class="material-symbols-outlined">video_library</span>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Quantum Physics 101</h3>
+<p class="text-xs text-ink/60 font-bold mt-1 italic">Lecture_04.mp4 • 42 mins</p>
+</div>
+</div>
+<div class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary border-2 border-ink shadow-[3px_3px_0px_0px_rgba(74,63,53,1)] text-ink" href="#summary">
+<span class="material-symbols-outlined text-xl">short_text</span>
+<span class="text-sm font-bold">Summary</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white hover:border-ink border-2 border-transparent transition-all group" href="#concepts">
+<span class="material-symbols-outlined text-xl text-ink/60 group-hover:text-accent transition-colors">lightbulb</span>
+<span class="text-sm font-bold text-ink/70 group-hover:text-ink">Key Concepts</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white hover:border-ink border-2 border-transparent transition-all group" href="#formulas">
+<span class="material-symbols-outlined text-xl text-ink/60 group-hover:text-accent transition-colors">functions</span>
+<span class="text-sm font-bold text-ink/70 group-hover:text-ink">Magic Formulas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white hover:border-ink border-2 border-transparent transition-all group" href="#exam-prep">
+<span class="material-symbols-outlined text-xl text-ink/60 group-hover:text-accent transition-colors">quiz</span>
+<span class="text-sm font-bold text-ink/70 group-hover:text-ink">Exam Prep</span>
+</a>
+</div>
+</div>
+<button class="flex items-center justify-center gap-2 w-full py-4 bg-white border-2 border-ink rounded-xl font-bold text-sm hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(74,63,53,1)] transition-all">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+Back to Library
+</button>
+</aside>
+
+<!-- Main Content -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-10">
+<div class="mb-2">
+<div class="flex items-center gap-2 text-sm text-ink/60 font-bold mb-4">
+<a class="hover:text-accent" href="#">Physics Notes</a>
+<span class="material-symbols-outlined text-xs">arrow_forward_ios</span>
+<span class="text-ink font-black">Wave-Particle Duality</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-black text-ink leading-tight drop-shadow-sm">Quantum Physics: Wave-Particle Duality</h1>
+<div class="flex items-center gap-4 mt-6">
+<span class="flex items-center gap-2 text-xs px-4 py-1.5 bg-accent text-white rounded-full font-bold border-2 border-ink shadow-[2px_2px_0px_0px_rgba(74,63,53,1)]">
+<span class="material-symbols-outlined text-sm">verified</span>
+AI VERIFIED
+</span>
+<span class="text-xs text-ink/50 font-bold uppercase tracking-wider">Updated Oct 24, 2023</span>
+</div>
+</div>
+
+<!-- Summary -->
+<section class="doodle-card p-10 relative overflow-hidden" id="summary">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">auto_stories</span>
+</div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-accent text-3xl">draw</span>
+<h2 class="text-2xl font-black text-ink">Executive Summary</h2>
+</div>
+<p class="text-xl leading-relaxed text-ink/80 font-medium">
+This lecture explores the fundamental contradiction at the heart of quantum mechanics: the wave-particle duality. It explains how entities like electrons and photons exhibit properties of both particles (localized mass) and waves (interference patterns). The core takeaway is that the behavior observed depends entirely on the measurement apparatus used, leading to Heisenberg's Uncertainty Principle.
+</p>
+</section>
+
+<!-- Key Concepts -->
+<section class="doodle-card p-10 bg-white" id="concepts">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-accent text-3xl">tips_and_updates</span>
+<h2 class="text-2xl font-black text-ink">Key Concepts</h2>
+</div>
+<div class="grid gap-8">
+<div class="p-6 rounded-2xl bg-[#FFF9F0] border-2 border-ink shadow-[3px_3px_0px_0px_rgba(215,189,226,1)]">
+<h3 class="font-black text-xl text-accent mb-3">Photoelectric Effect</h3>
+<p class="text-lg text-ink/70 leading-relaxed font-semibold">The phenomenon where light shining on a metal surface causes the emission of electrons. This proved light behaves as particles (photons) rather than just waves.</p>
+</div>
+<div class="p-6 rounded-2xl bg-[#F0F7FF] border-2 border-ink shadow-[3px_3px_0px_0px_rgba(215,189,226,1)]">
+<h3 class="font-black text-xl text-accent mb-3">Double Slit Experiment</h3>
+<p class="text-lg text-ink/70 leading-relaxed font-semibold">A classic demonstration showing that light and matter can display characteristics of both classically defined waves and particles; it shows the fundamental probabilistic nature of quantum mechanical phenomena.</p>
+</div>
+</div>
+</section>
+
+<!-- Magic Formulas -->
+<section class="doodle-card p-10 bg-gradient-to-br from-white to-primary/10" id="formulas">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-accent text-3xl">CarSimple</span>
+<h2 class="text-2xl font-black text-ink">Magic Formulas</h2>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between p-8 bg-white border-2 border-ink rounded-3xl shadow-[5px_5px_0px_0px_rgba(74,63,53,1)]">
+<div>
+<p class="text-xs font-black text-accent uppercase mb-2 tracking-widest">Planck-Einstein Relation</p>
+<p class="text-4xl font-mono font-black tracking-[0.2em] text-ink">E = hν</p>
+</div>
+<div class="text-right text-sm font-bold text-ink/50 space-y-1">
+<p>E = Energy</p>
+<p>h = Planck Constant</p>
+<p>ν = Frequency</p>
+</div>
+</div>
+<div class="flex items-center justify-between p-8 bg-white border-2 border-ink rounded-3xl shadow-[5px_5px_0px_0px_rgba(74,63,53,1)]">
+<div>
+<p class="text-xs font-black text-accent uppercase mb-2 tracking-widest">De Broglie Wavelength</p>
+<p class="text-4xl font-mono font-black tracking-[0.2em] text-ink">λ = h / p</p>
+</div>
+<div class="text-right text-sm font-bold text-ink/50 space-y-1">
+<p>λ = Wavelength</p>
+<p>p = Momentum</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Exam Practice -->
+<section class="doodle-card p-10" id="exam-prep">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-accent text-3xl">stylus_note</span>
+<h2 class="text-2xl font-black text-ink">Exam Practice</h2>
+</div>
+<div class="space-y-6">
+<div class="border-2 border-ink rounded-2xl overflow-hidden bg-white shadow-[3px_3px_0px_0px_rgba(74,63,53,1)]">
+<div class="p-5 bg-primary/30 border-b-2 border-ink font-black text-lg">
+Q: Explain why the observer effect is critical in the double-slit experiment.
+</div>
+<div class="p-5 text-lg text-ink/70 font-semibold italic">
+Answer: The act of measurement collapses the wave function, forcing the particle to "choose" a state, thereby destroying the interference pattern.
+</div>
+</div>
+<div class="border-2 border-ink rounded-2xl overflow-hidden bg-white shadow-[3px_3px_0px_0px_rgba(74,63,53,1)]">
+<div class="p-5 bg-primary/30 border-b-2 border-ink font-black text-lg">
+Q: What is the significance of the Compton Scattering effect?
+</div>
+<div class="p-5 text-lg font-bold">
+<span class="text-accent underline cursor-pointer decoration-2 underline-offset-4 reveal-answer">Click to reveal answer</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- Sidebar Right -->
+<aside class="hidden lg:flex lg:col-span-2 flex-col gap-6 sticky top-28">
+<div class="flex flex-col gap-4">
+<button class="flex items-center justify-between px-5 py-4 bg-accent text-white rounded-2xl border-2 border-ink shadow-[4px_4px_0px_0px_rgba(74,63,53,1)] hover:translate-y-[-2px] transition-all">
+<span class="text-sm font-black uppercase">Save Changes</span>
+<span class="material-symbols-outlined">save</span>
+</button>
+<button class="flex items-center justify-between px-5 py-4 bg-primary text-ink rounded-2xl border-2 border-ink shadow-[4px_4px_0px_0px_rgba(74,63,53,1)] hover:translate-y-[-2px] transition-all font-black uppercase text-sm">
+<span>Export PDF</span>
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</button>
+<button class="flex items-center justify-between px-5 py-4 bg-white text-ink rounded-2xl border-2 border-ink shadow-[4px_4px_0px_0px_rgba(74,63,53,1)] hover:translate-y-[-2px] transition-all font-black uppercase text-sm">
+<span>Copy Text</span>
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+<button class="flex items-center justify-between px-5 py-4 bg-white text-ink rounded-2xl border-2 border-ink shadow-[4px_4px_0px_0px_rgba(74,63,53,1)] hover:translate-y-[-2px] transition-all font-black uppercase text-sm">
+<span>Share</span>
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<div class="p-6 rounded-3xl bg-white border-2 border-ink shadow-[6px_6px_0px_0px_rgba(215,189,226,1)] mt-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-accent text-xl">bolt</span>
+<p class="text-xs font-black text-ink uppercase tracking-wider">AI Assistant Tips</p>
+</div>
+<p class="text-xs leading-relaxed font-bold text-ink/60">Try generating flashcards from these notes to improve retention by 40%.</p>
+<button class="mt-4 w-full py-3 bg-primary/20 hover:bg-primary border-2 border-ink text-xs font-black rounded-xl transition-colors uppercase">
+Create Flashcards
+</button>
+</div>
+</aside>
+
+</div>
+</main>
+
+<!-- Mobile Footer -->
+<div class="lg:hidden fixed bottom-6 left-6 right-6 bg-white border-2 border-ink rounded-3xl px-8 py-4 flex justify-around items-center z-50 shadow-[8px_8px_0px_0px_rgba(74,63,53,1)]">
+<button class="flex flex-col items-center gap-1 text-accent">
+<span class="material-symbols-outlined font-bold">description</span>
+<span class="text-[10px] font-black uppercase">Notes</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-ink/40">
+<span class="material-symbols-outlined font-bold">menu_open</span>
+<span class="text-[10px] font-black uppercase">Outline</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-ink/40">
+<span class="material-symbols-outlined font-bold">download</span>
+<span class="text-[10px] font-black uppercase">Export</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-ink/40">
+<span class="material-symbols-outlined font-bold">settings</span>
+<span class="text-[10px] font-black uppercase">Tools</span>
+</button>
+</div>
+
+<!-- JS for Reveal Answer -->
+<script>
+document.querySelectorAll('.reveal-answer').forEach(el => {
+    el.addEventListener('click', () => {
+        el.textContent = 'Answer: Compton scattering demonstrates that light has particle-like properties as photons transfer momentum to electrons.';
+    });
+});
+</script>
+
+</body>
+</html>

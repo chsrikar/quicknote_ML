@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | QuickNoteML</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=Nunito:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#D7BDE2",
+              "accent": "#FF6F61",
+              "vibrant-red": "#FF6B6B",
+              "peach": "#FFF0D9",
+              "dark-slate": "#1E293B",
+            },
+            fontFamily: {
+              "header": ["Quicksand", "sans-serif"],
+              "body": ["Nunito", "sans-serif"]
+            },
+            boxShadow: {
+              'sticker': '4px 4px 0px 0px #1E293B',
+              'sticker-hover': '2px 2px 0px 0px #1E293B',
+            }
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #FFF0D9;
+        }
+        h1, h2, h3, .font-header {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .sticker-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid #1E293B;
+            box-shadow: 8px 8px 0px 0px #1E293B;
+        }
+        .sticker-element {
+            border: 2px solid #1E293B;
+            box-shadow: 4px 4px 0px 0px #1E293B;
+            transition: all 0.1s ease-in-out;
+        }
+        .sticker-element:active {
+            box-shadow: 0px 0px 0px 0px #1E293B;
+            transform: translate(2px, 2px);
+        }
+        .mesh-pattern {
+            background-image: radial-gradient(#FF6F61 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-vibrant-red/20 relative">
+<div class="fixed inset-0 mesh-pattern pointer-events-none"></div>
+<header class="flex items-center justify-between whitespace-nowrap border-b-2 border-dark-slate px-6 lg:px-40 py-4 w-full bg-white/50 backdrop-blur-md relative z-10">
+<div class="flex items-center gap-4 text-dark-slate">
+<div class="size-8 text-accent">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor" stroke="#1E293B" stroke-width="2"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+</div>
+<h2 class="text-dark-slate text-xl font-bold font-header tracking-tight">QuickNoteML</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-dark-slate/70 text-sm hidden md:block font-medium">New here?</span>
+<a href="signup.html">
+<button class="sticker-element flex min-w-[100px] cursor-pointer items-center justify-center rounded-full h-10 px-4 bg-vibrant-red text-white text-sm font-bold font-header hover:brightness-110 active:brightness-95">
+                Sign up
+            </button>
+            </a>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center px-4 py-12 relative z-10">
+<div class="sticker-card w-full max-w-[480px] p-8 md:p-12 rounded-3xl">
+<div class="text-center mb-10">
+<h1 class="text-dark-slate tracking-tight text-[36px] font-bold font-header leading-tight pb-2">Welcome back!</h1>
+<p class="text-dark-slate/60 text-base font-medium">AI-powered study vibes are waiting. ✍️</p>
+</div>
+<div class="flex flex-col gap-4 mb-8">
+<button class="sticker-element flex items-center justify-center gap-3 w-full bg-white hover:bg-peach/30 text-dark-slate rounded-xl h-14 px-4 font-header">
+<img alt="Google icon" class="size-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfIhMg-uldgn7dq6Vvv7B8bK1nqhv11HyX85uMtn85AU-M-7gHa95JDRDp0m_xJvVV9nEOUV26RaYCdjdPTBhiwDzB23tMrrZOc7KfERqkxl9shEoLBuulUCezKQhEDBMIRpHPM0DWz1c4IeaCHGUYibshs1yKTE0-o669KBfQcZiw060i6I2vB94lxgnk5JTSFE7VVccY_ONCVlCCnajUHOIelXj4g7KNpiqSzDBFNdyAD4reG8qYoGYsOw9rSAJzaH6mQlpAJrHo"/>
+<span class="text-sm font-bold">Google Login</span>
+</button>
+<button class="sticker-element flex items-center justify-center gap-3 w-full bg-white hover:bg-peach/30 text-dark-slate rounded-xl h-14 px-4 font-header">
+<svg class="size-6 fill-dark-slate" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+</svg>
+<span class="text-sm font-bold">GitHub Login</span>
+</button>
+</div>
+<div class="flex items-center gap-4 mb-8">
+<div class="h-[2px] bg-dark-slate/20 flex-1"></div>
+<span class="text-dark-slate/40 text-[10px] font-bold uppercase tracking-widest font-header">Or use email</span>
+<div class="h-[2px] bg-dark-slate/20 flex-1"></div>
+</div>
+<form class="space-y-6" action="dashboard.html">
+<div class="flex flex-col w-full">
+<label class="flex flex-col w-full">
+<p class="text-dark-slate text-sm font-bold leading-normal pb-2 ml-1 font-header">Email Address</p>
+<div class="relative">
+<input class="sticker-element flex w-full rounded-xl text-dark-slate focus:ring-0 border-0 bg-white h-14 placeholder:text-dark-slate/30 pl-12 pr-4 text-base font-medium" placeholder="name@example.com" type="email"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-dark-slate/40">mail</span>
+</div>
+</label>
+</div>
+<div class="flex flex-col w-full">
+<div class="flex justify-between items-center pb-2 ml-1">
+<p class="text-dark-slate text-sm font-bold font-header leading-normal">Password</p>
+<a class="text-accent text-xs font-bold hover:underline" href="#">Forgot?</a>
+</div>
+<label class="flex flex-col w-full relative">
+<input class="sticker-element flex w-full rounded-xl text-dark-slate focus:ring-0 border-0 bg-white h-14 placeholder:text-dark-slate/30 pl-12 pr-12 text-base font-medium" placeholder="Enter password" type="password"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-dark-slate/40">lock</span>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-dark-slate/40 cursor-pointer hover:text-dark-slate">visibility</span>
+</label>
+</div>
+
+<button class="sticker-element flex w-full items-center justify-center rounded-xl h-14 bg-vibrant-red text-white text-lg font-bold font-header mt-8 hover:brightness-110 active:brightness-95" type="submit">
+                    Log In
+                </button>
+               
+</form>
+<div class="mt-10 text-center">
+<p class="text-dark-slate/60 text-sm font-medium">
+                    Don't have an account? 
+                    <a class="text-accent font-bold hover:underline ml-1" href="signup.html">
+    Sign up for free
+</a>
+</p>
+</div>
+</div>
+</main>
+<div class="w-full flex justify-center pb-12 opacity-50 relative z-10">
+<div class="max-w-[960px] w-full px-4">
+<div class="flex justify-center gap-8">
+<div class="size-6 rounded-full border-2 border-dark-slate bg-primary shadow-[2px_2px_0px_0px_#1E293B]"></div>
+<div class="size-6 rounded-full border-2 border-dark-slate bg-vibrant-red shadow-[2px_2px_0px_0px_#1E293B]"></div>
+<div class="size-6 rounded-full border-2 border-dark-slate bg-accent shadow-[2px_2px_0px_0px_#1E293B]"></div>
+</div>
+</div>
+</div>
+
+</body></html>

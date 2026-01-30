@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Whimsical Mind Map Workspace - QuickNoteML</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "peach": "#FFF0D9",
+                "lavender": "#D7BDE2",
+                "coral": "#FF6F61",
+                "soft-lavender": "#E8DAEF",
+                "deep-lavender": "#C39BD3",
+                "dark-slate": "#1E293B",
+                "creamy-white": "#FDFCF0"
+              },
+              fontFamily: {
+                "display": ["Quicksand", "sans-serif"],
+                "body": ["Nunito", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+              boxShadow: {
+                'sticker': '4px 4px 0px 0px #1E293B',
+                'sticker-lg': '8px 8px 0px 0px #1E293B',
+                'sticker-hover': '2px 2px 0px 0px #1E293B',
+              }
+            },
+          },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .doodle-bg {
+            background-image: radial-gradient(#FF6F61 0.8px, transparent 0.8px);
+            background-size: 32px 32px;
+        }
+        .mindmap-canvas {
+            background-color: #FDFCF0;
+            background-image: 
+                radial-gradient(#1E293B 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+        }
+        .hand-drawn-line {
+            stroke: #1E293B;
+            stroke-width: 3;
+            stroke-linecap: round;
+            fill: none;
+            filter: url(#roughness);
+        }
+        .sticker-card {
+            border: 2px solid #1E293B;
+            box-shadow: 6px 6px 0px 0px #1E293B;
+        }
+        .node-bubble {
+            border: 2px solid #1E293B;
+            box-shadow: 4px 4px 0px 0px #1E293B;
+            transition: transform 0.2s ease;
+        }
+        .node-bubble:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-peach font-body text-dark-slate min-h-screen doodle-bg overflow-hidden">
+<header class="sticky top-0 z-50 flex items-center justify-between bg-white px-6 py-4 border-b-2 border-dark-slate shadow-[0px_4px_0px_0px_#1E293B]">
+<div class="flex items-center gap-6">
+<a href="aitools.html" aria-label="Go back to AI Tools">
+  <button
+    class="size-10 flex items-center justify-center rounded-full bg-lavender border-2 border-dark-slate shadow-md hover:translate-y-0.5 transition-all text-dark-slate"
+  >
+    <span class="material-symbols-outlined text-2xl font-bold">arrow_back</span>
+  </button>
+</a>
+
+<div class="flex items-center gap-3">
+<div class="size-10 bg-coral rounded-full flex items-center justify-center text-white border-2 border-dark-slate shadow-sticker">
+<span class="material-symbols-outlined">bubble_chart</span>
+</div>
+<h1 class="text-[#2D3436] font-display text-2xl font-bold tracking-tight">QuickNoteML</h1>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<span class="text-sm font-bold bg-lavender/30 px-3 py-1 rounded-full border border-dark-slate">Biology 101: Cell Structure</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-white border-2 border-dark-slate px-4 py-2 rounded-full font-display font-bold shadow-sticker hover:translate-y-0.5 hover:shadow-sticker-hover transition-all">
+            Save Draft
+        </button>
+<div class="h-10 w-10 rounded-full border-2 border-dark-slate bg-cover bg-center shadow-sticker" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClUq0wYiOUr7Ji8P1CRDM3l3V2yuWhep71J3wsBKl6tsGkNdc82nZFAf0TmGk2G8Gw-5OFZvQ_QkAH83ZXDYcJimJkwAFM-QK83ci_ntp3KkktBaOuQHTv_aZo_FgfpvkgtVThYKVQc5SX1HIvzYmXt2UxZxHpUBb_Yac4oervwpwCW5VshGmsMQuvh8S4g5uFOfCfU_ZDMIAZuA5QCnAGBtNwwKr3Oi1ufKFiX-CetcgWM6K7kKg_1aYqOdp2RM7E1L0lUiE3X08");'></div>
+</div>
+</header>
+<main class="relative h-[calc(100vh-84px)] w-full p-6">
+<div class="absolute top-10 left-10 opacity-20 pointer-events-none rotate-12">
+<span class="material-symbols-outlined text-8xl">school</span>
+</div>
+<div class="absolute bottom-10 right-10 opacity-20 pointer-events-none -rotate-12">
+<span class="material-symbols-outlined text-8xl">menu_book</span>
+</div>
+<div class="absolute top-10 right-10 opacity-20 pointer-events-none rotate-45">
+<span class="material-symbols-outlined text-6xl">edit</span>
+</div>
+<div class="absolute left-10 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-4">
+<div class="bg-white p-3 rounded-2xl border-2 border-dark-slate shadow-sticker-lg flex flex-col gap-4">
+<button class="size-12 bg-coral text-white rounded-xl border-2 border-dark-slate shadow-sticker flex items-center justify-center hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all" title="Add Node">
+<span class="material-symbols-outlined text-3xl">add_circle</span>
+</button>
+<button class="size-12 bg-lavender text-dark-slate rounded-xl border-2 border-dark-slate shadow-sticker flex items-center justify-center hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all" title="Change Color">
+<span class="material-symbols-outlined text-3xl">palette</span>
+</button>
+<button class="size-12 bg-white text-dark-slate rounded-xl border-2 border-dark-slate shadow-sticker flex items-center justify-center hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all" title="Export">
+<span class="material-symbols-outlined text-3xl">download</span>
+</button>
+<div class="w-full h-0.5 bg-dark-slate/10 my-1"></div>
+<button class="size-12 bg-white text-dark-slate rounded-xl border-2 border-dark-slate shadow-sticker flex items-center justify-center hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all" title="Zoom In">
+<span class="material-symbols-outlined text-3xl">zoom_in</span>
+</button>
+</div>
+</div>
+<div class="w-full h-full rounded-[2.5rem] border-2 border-dark-slate shadow-sticker-lg mindmap-canvas relative overflow-hidden">
+<svg class="absolute inset-0 w-full h-full pointer-events-none">
+<defs>
+<filter id="roughness">
+<feTurbulence baseFrequency="0.04" numOctaves="3" result="noise" type="fractalNoise"></feTurbulence>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="3"></feDisplacementMap>
+</filter>
+</defs>
+<path class="hand-drawn-line" d="M 640 380 Q 500 300 420 280"></path>
+<path class="hand-drawn-line" d="M 640 380 Q 780 300 860 280"></path>
+<path class="hand-drawn-line" d="M 640 380 Q 500 460 420 480"></path>
+<path class="hand-drawn-line" d="M 640 380 Q 780 460 860 480"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="z-30 bg-coral text-white px-10 py-6 rounded-[2rem] node-bubble border-2 border-dark-slate text-center">
+<span class="text-xs uppercase font-black tracking-widest opacity-80 block mb-1">Main Concept</span>
+<h3 class="font-display text-3xl font-bold">The Animal Cell</h3>
+</div>
+<div class="absolute top-[22%] left-[25%] z-20 bg-lavender px-6 py-4 rounded-2xl node-bubble border-2 border-dark-slate">
+<h4 class="font-display font-bold text-lg">Nucleus</h4>
+<p class="text-xs font-bold opacity-70">The control center</p>
+</div>
+<div class="absolute top-[22%] right-[25%] z-20 bg-lavender px-6 py-4 rounded-2xl node-bubble border-2 border-dark-slate">
+<h4 class="font-display font-bold text-lg">Mitochondria</h4>
+<p class="text-xs font-bold opacity-70">Energy production</p>
+</div>
+<div class="absolute bottom-[28%] left-[25%] z-20 bg-lavender px-6 py-4 rounded-2xl node-bubble border-2 border-dark-slate">
+<h4 class="font-display font-bold text-lg">Ribosomes</h4>
+<p class="text-xs font-bold opacity-70">Protein synthesis</p>
+</div>
+<div class="absolute bottom-[28%] right-[25%] z-20 bg-lavender px-6 py-4 rounded-2xl node-bubble border-2 border-dark-slate">
+<h4 class="font-display font-bold text-lg">Cytoplasm</h4>
+<p class="text-xs font-bold opacity-70">Jelly-like filler</p>
+</div>
+<div class="absolute bottom-10 right-10 bg-white border-2 border-dark-slate p-4 rounded-2xl shadow-sticker max-w-[200px] animate-bounce">
+<p class="text-xs font-bold text-dark-slate/70 italic">"Psst! Click a sub-topic to add details or launch a quick quiz!"</p>
+</div>
+</div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white/90 backdrop-blur-sm border-2 border-dark-slate px-6 py-3 rounded-full shadow-sticker z-40">
+<button class="flex items-center gap-2 text-sm font-bold hover:text-coral transition-colors">
+<span class="material-symbols-outlined text-xl">undo</span> Undo
+            </button>
+<div class="w-px h-6 bg-dark-slate/20 mx-2"></div>
+<button class="flex items-center gap-2 text-sm font-bold hover:text-coral transition-colors">
+<span class="material-symbols-outlined text-xl">redo</span> Redo
+            </button>
+<div class="w-px h-6 bg-dark-slate/20 mx-2"></div>
+<button class="bg-coral text-white px-4 py-1.5 rounded-full text-sm font-bold border-2 border-dark-slate shadow-[2px_2px_0px_0px_#1E293B] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+                Generate Quiz
+            </button>
+</div>
+</div>
+</main>
+<div class="fixed bottom-10 left-10 z-50 pointer-events-none">
+<div class="bg-white/80 border-2 border-dark-slate p-3 rounded-xl shadow-sticker">
+<h5 class="font-display font-bold text-xs uppercase tracking-tighter mb-2 border-b border-dark-slate/10 pb-1">Workspace Info</h5>
+<div class="space-y-1">
+<div class="flex items-center gap-2 text-[10px] font-bold">
+<div class="size-2 rounded-full bg-coral border border-dark-slate"></div> Central Concept
+            </div>
+<div class="flex items-center gap-2 text-[10px] font-bold">
+<div class="size-2 rounded-full bg-lavender border border-dark-slate"></div> Key Sub-topic
+            </div>
+</div>
+</div>
+</div>
+
+</body></html>

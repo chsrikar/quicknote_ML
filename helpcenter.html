@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Whimsical Help Centre (High Contrast) | QuickNoteML</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Nunito:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF7F50",
+                        "lavender": "#967BB6",
+                        "soft-lavender": "#D7BDE2",
+                        "peach": "#FFF0D9",
+                        "soft-white": "#FDFDFF",
+                        "dark-slate": "#1E293B",
+                    },
+                    fontFamily: {
+                        "display": ["Quicksand", "sans-serif"],
+                        "body": ["Nunito", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #FF7F50;
+            --lavender-color: #967BB6;
+            --soft-lavender: #D7BDE2;
+            --peach-bg: #FFF0D9;
+            --dark-slate: #1E293B;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--peach-bg);
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .sticker-shadow {
+            box-shadow: 6px 6px 0px 0px var(--dark-slate);
+        }
+        .sticker-shadow-sm {
+            box-shadow: 4px 4px 0px 0px var(--dark-slate);
+        }
+        .sticker-border {
+            border: 2px solid var(--dark-slate);
+        }
+        .hover-lift:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px var(--dark-slate);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-[#4A3E3E]">
+<header class="sticky top-0 z-50 bg-[#FFF0D9]/90 backdrop-blur-md border-b-2 border-dashed border-lavender/30 px-4 md:px-10 lg:px-40 py-4">
+<div class="flex items-center justify-between whitespace-nowrap max-w-[1200px] mx-auto">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-9 bg-lavender/20 rounded-xl flex items-center justify-center">
+<svg class="size-6" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#4A3E3E] text-2xl font-bold tracking-tight font-display">QuickNoteML</h2>
+</div>
+<div class="flex items-center gap-4">
+    <a href="dashboard.html">
+<button class="bg-soft-lavender text-dark-slate border-2 border-dark-slate sticker-shadow-sm h-11 px-6 rounded-2xl font-bold text-sm transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(30,41,59,1)] active:translate-y-[1px] active:shadow-sm">
+                    Go back to dashboard
+                </button><a>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-2xl size-11 border-2 border-dark-slate sticker-shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdm0HbECI8big0PHadmGmgN7awdop9hRnRiYGDMVD0bjl-I3Cu8boHBuPAe7alq8XH0v2QwFCkKO9sv8OkvkFklxvWzOf_1_gRUQVCV-eFtpVoofHG5g7rmKJ6YZnnkkACzU9yxIiMSocOAG_0usznVewMZ_zoBRMPS_3hL06Ve9CIZB1WyQFXZVbVNC3A0-vlNNYouuy8wvqIA9aV_sOwzPR4bZclN29GRiW86DFGJRaoXM6yO1ErIumpwj-jLYTEfWPn3Ar13aRf");'></div>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-4 py-8">
+<nav class="flex flex-wrap gap-2 px-4 mb-10">
+<a class="text-[#8B7E7E] text-sm font-semibold hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-[#8B7E7E] text-sm font-medium">/</span>
+<span class="text-lavender text-sm font-bold">Help Centre</span>
+</nav>
+<div class="flex flex-col items-center text-center py-16 px-4">
+<div class="mb-4 inline-block px-4 py-1 rounded-full bg-lavender/10 text-lavender font-bold text-xs uppercase tracking-widest">Student Support Hub</div>
+<h1 class="text-[#4A3E3E] tracking-tight text-4xl md:text-6xl font-black mb-10 font-display">
+                How can we help you?
+            </h1>
+<div class="w-full max-w-2xl relative">
+<div class="flex flex-col min-w-40 h-16 w-full rounded-2xl sticker-border sticker-shadow bg-soft-white overflow-hidden transition-all focus-within:translate-y-[-2px] focus-within:shadow-[8px_8px_0px_0px_rgba(30,41,59,1)]">
+<div class="flex w-full flex-1 items-stretch h-full">
+<div class="text-lavender flex items-center justify-center pl-6 pr-2">
+<span class="material-symbols-outlined text-3xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-transparent focus:outline-0 focus:ring-0 text-[#4A3E3E] px-3 text-xl font-medium placeholder:text-[#A89E9E]" placeholder="Search for articles, guides, and more..."/>
+</div>
+</div>
+</div>
+<p class="mt-6 text-[#8B7E7E] text-sm font-medium">
+                Common searches: <span class="text-primary font-bold cursor-pointer hover:underline decoration-wavy">Billing</span>, <span class="text-lavender font-bold cursor-pointer hover:underline decoration-wavy">Notion Sync</span>, <span class="text-primary font-bold cursor-pointer hover:underline decoration-wavy">API limits</span>
+</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-4 mt-8">
+<div class="group flex flex-col gap-5 rounded-2xl sticker-border bg-soft-white p-8 sticker-shadow transition-all cursor-pointer hover-lift">
+<div class="text-primary bg-primary/10 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all transform group-hover:rotate-6 sticker-border sticker-shadow-sm">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+</div>
+<div class="flex flex-col gap-3">
+<h2 class="text-[#4A3E3E] text-xl font-black font-display">Getting Started</h2>
+<p class="text-[#6B5E5E] text-sm leading-relaxed font-semibold">Everything you need to set up your account and generate your first AI study note.</p>
+</div>
+</div>
+<div class="group flex flex-col gap-5 rounded-2xl sticker-border bg-soft-white p-8 sticker-shadow transition-all cursor-pointer hover-lift">
+<div class="text-lavender bg-lavender/10 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-lavender group-hover:text-white transition-all transform group-hover:-rotate-6 sticker-border sticker-shadow-sm">
+<span class="material-symbols-outlined text-3xl">brush</span>
+</div>
+<div class="flex flex-col gap-3">
+<h2 class="text-[#4A3E3E] text-xl font-black font-display">Troubleshooting</h2>
+<p class="text-[#6B5E5E] text-sm leading-relaxed font-semibold">Step-by-step guides to resolving technical glitches and common issues.</p>
+</div>
+</div>
+<div class="group flex flex-col gap-5 rounded-2xl sticker-border bg-soft-white p-8 sticker-shadow transition-all cursor-pointer hover-lift">
+<div class="text-primary bg-primary/10 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all transform group-hover:rotate-3 sticker-border sticker-shadow-sm">
+<span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+</div>
+<div class="flex flex-col gap-3">
+<h2 class="text-[#4A3E3E] text-xl font-black font-display">Account &amp; Billing</h2>
+<p class="text-[#6B5E5E] text-sm leading-relaxed font-semibold">Manage your premium subscription, update payment methods, and view invoices.</p>
+</div>
+</div>
+<div class="group flex flex-col gap-5 rounded-2xl sticker-border bg-soft-white p-8 sticker-shadow transition-all cursor-pointer hover-lift">
+<div class="text-lavender bg-lavender/10 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-lavender group-hover:text-white transition-all transform group-hover:rotate-12 sticker-border sticker-shadow-sm">
+<span class="material-symbols-outlined text-3xl">auto_fix_high</span>
+</div>
+<div class="flex flex-col gap-3">
+<h2 class="text-[#4A3E3E] text-xl font-black font-display">AI Tips</h2>
+<p class="text-[#6B5E5E] text-sm leading-relaxed font-semibold">Advanced techniques for prompting the AI to get high-quality, exam-ready summaries.</p>
+</div>
+</div>
+<div class="group flex flex-col gap-5 rounded-2xl sticker-border bg-soft-white p-8 sticker-shadow transition-all cursor-pointer hover-lift">
+<div class="text-primary bg-primary/10 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all transform group-hover:-rotate-12 sticker-border sticker-shadow-sm">
+<span class="material-symbols-outlined text-3xl">extension</span>
+</div>
+<div class="flex flex-col gap-3">
+<h2 class="text-[#4A3E3E] text-xl font-black font-display">Integrations</h2>
+<p class="text-[#6B5E5E] text-sm leading-relaxed font-semibold">How to sync your notes with Notion, Google Docs, Obsidian, and Evernote.</p>
+</div>
+</div>
+<div class="group flex flex-col gap-5 rounded-2xl sticker-border bg-soft-white p-8 sticker-shadow transition-all cursor-pointer hover-lift">
+<div class="text-lavender bg-lavender/10 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-lavender group-hover:text-white transition-all transform group-hover:rotate-6 sticker-border sticker-shadow-sm">
+<span class="material-symbols-outlined text-3xl">school</span>
+</div>
+<div class="flex flex-col gap-3">
+<h2 class="text-[#4A3E3E] text-xl font-black font-display">Academic Integrity</h2>
+<p class="text-[#6B5E5E] text-sm leading-relaxed font-semibold">Our commitment to ethical AI use and guidelines for academic success.</p>
+</div>
+</div>
+</div>
+<section class="mt-28 px-4">
+<div class="text-center mb-12">
+<h2 class="text-[#4A3E3E] text-4xl font-black mb-4 font-display">Curious Minds Want to Know</h2>
+<div class="h-1.5 w-24 bg-primary/30 mx-auto rounded-full"></div>
+</div>
+<div class="max-w-3xl mx-auto space-y-8">
+<div class="sticker-border rounded-2xl bg-soft-white overflow-hidden sticker-shadow-sm">
+<button class="w-full flex items-center justify-between p-6 text-left font-bold text-[#4A3E3E] hover:bg-lavender/5 transition-colors font-display text-lg">
+<span>How do I upload lecture recordings for transcription?</span>
+<span class="material-symbols-outlined text-lavender">expand_more</span>
+</button>
+<div class="px-6 pb-6 text-[#6B5E5E] text-base leading-relaxed border-t-2 border-[#1E293B]/10 pt-4 font-medium">
+                        You can upload files directly from your dashboard in MP3, MP4, or WAV formats. Simply click the <span class="text-primary font-bold">"New Note"</span> button and select "Upload Audio/Video". We support files up to 500MB.
+                    </div>
+</div>
+<div class="sticker-border rounded-2xl bg-soft-white overflow-hidden sticker-shadow-sm">
+<button class="w-full flex items-center justify-between p-6 text-left font-bold text-[#4A3E3E] hover:bg-lavender/5 transition-colors font-display text-lg">
+<span>Can I export my notes to PDF or Word?</span>
+<span class="material-symbols-outlined text-lavender">expand_more</span>
+</button>
+</div>
+<div class="sticker-border rounded-2xl bg-soft-white overflow-hidden sticker-shadow-sm">
+<button class="w-full flex items-center justify-between p-6 text-left font-bold text-[#4A3E3E] hover:bg-lavender/5 transition-colors font-display text-lg">
+<span>How does the AI handle complex mathematical formulas?</span>
+<span class="material-symbols-outlined text-lavender">expand_more</span>
+</button>
+</div>
+<div class="sticker-border rounded-2xl bg-soft-white overflow-hidden sticker-shadow-sm">
+<button class="w-full flex items-center justify-between p-6 text-left font-bold text-[#4A3E3E] hover:bg-lavender/5 transition-colors font-display text-lg">
+<span>Is there a limit to how many notes I can generate?</span>
+<span class="material-symbols-outlined text-lavender">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<div class="mt-28 mb-16 px-4">
+<div class="bg-lavender/10 border-2 border-dashed border-lavender/30 rounded-3xl p-12 flex flex-col items-center text-center">
+<div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mb-8 sticker-border sticker-shadow transform -rotate-6">
+<span class="material-symbols-outlined text-3xl">auto_stories</span>
+</div>
+<h3 class="text-[#4A3E3E] text-3xl font-black mb-4 font-display">Still have questions?</h3>
+<p class="text-[#6B5E5E] max-w-lg mb-10 font-semibold text-lg">
+                    Our friendly support team of AI enthusiasts is here to help you ace your studies!
+                </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary text-white px-10 h-14 rounded-2xl font-black text-base transition-all flex items-center gap-2 sticker-border sticker-shadow hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(30,41,59,1)] active:translate-y-[2px] active:shadow-sm">
+<span class="material-symbols-outlined text-xl">send</span>
+                        Message Us
+                    </button>
+<button class="bg-soft-white text-lavender px-10 h-14 rounded-2xl font-black text-base transition-all sticker-border sticker-shadow hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(30,41,59,1)] active:translate-y-[2px] active:shadow-sm">
+                        Start Live Chat
+                    </button>
+</div>
+<p class="mt-8 text-xs text-lavender font-black uppercase tracking-widest bg-lavender/10 px-4 py-1 rounded-full">
+                    Response time: &lt; 2 study breaks
+                </p>
+</div>
+</div>
+</main>
+<footer class="bg-[#F9E8D0] border-t-2 border-dashed border-lavender/20 py-16 px-4 md:px-40">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-3 text-primary mb-8">
+<div class="size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-[#4A3E3E] font-black text-2xl font-display">QuickNoteML</span>
+</div>
+<p class="text-[#8B7E7E] text-base font-semibold max-w-sm">
+                    Generating whimsical study magic for students around the world with the power of AI.
+                </p>
+</div>
+<div>
+<h4 class="text-[#4A3E3E] font-black text-sm mb-8 uppercase tracking-[0.2em] font-display">Playground</h4>
+<ul class="space-y-4 text-sm font-bold text-[#8B7E7E]">
+<li><a class="hover:text-primary transition-colors" href="#">Pricing Plans</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Study Stories</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Magic Sync</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Developer Docs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[#4A3E3E] font-black text-sm mb-8 uppercase tracking-[0.2em] font-display">Our World</h4>
+<ul class="space-y-4 text-sm font-bold text-[#8B7E7E]">
+<li><a class="hover:text-primary transition-colors" href="#">About the Magic</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Spells</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Rules of Conduct</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-16 pt-8 border-t border-lavender/10 text-center text-xs font-bold text-lavender/60 tracking-widest uppercase">
+            © 2024 QuickNoteML. Made with ✨ and coffee for students.
+        </div>
+</footer>
+
+</body></html>

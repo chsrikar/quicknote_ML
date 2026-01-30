@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickNoteML Onboarding - Whimsical Doodle Land</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#FF7F6E", // Coral primary
+              "peach": "#FFF0D9",  // Creamy peach background
+              "lavender": "#E0D7FF", // Lavender accents
+              "dark-slate": "#1E293B", // Dark slate stroke
+            },
+            fontFamily: {
+              "display": ["Quicksand", "sans-serif"],
+              "body": ["Nunito", "sans-serif"]
+            },
+            boxShadow: {
+              'sticker': '4px 4px 0px 0px #1E293B',
+              'sticker-hover': '2px 2px 0px 0px #1E293B',
+            }
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-body bg-peach text-dark-slate;
+            }
+            h1, h2, h3 {
+                @apply font-display;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sticker-card {
+            @apply border-2 border-dark-slate shadow-sticker bg-white transition-all;
+        }
+        .sticker-card:hover {
+            @apply shadow-sticker-hover translate-x-[2px] translate-y-[2px];
+        }
+        .connector-path {
+            stroke: #1E293B;
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between px-10 py-6 bg-transparent z-10">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-lavender border-2 border-dark-slate rounded-full flex items-center justify-center text-dark-slate shadow-sticker">
+<svg class="w-6 h-6" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-bold tracking-tight text-dark-slate">QuickNoteML</h2>
+</div>
+<div class="px-4 py-1 bg-lavender border-2 border-dark-slate rounded-full shadow-sticker">
+<span class="text-sm font-bold text-dark-slate">1 of 3</span>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-4 py-8">
+<div class="max-w-[1000px] w-full flex flex-col items-center gap-12">
+<div class="text-center max-w-2xl">
+<h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-dark-slate">
+                        Any Source, <span class="text-primary italic">Perfect Notes.</span>
+</h1>
+<p class="text-xl text-dark-slate/80 font-semibold leading-relaxed">
+                        Upload PDFs, paste YouTube links, or sync web articles. <br class="hidden md:block"/> 
+                        Our AI organizes them into structured study guides in seconds.
+                    </p>
+</div>
+<div class="relative w-full py-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20">
+<div class="flex flex-col gap-8 order-2 md:order-1 relative z-10">
+<div class="sticker-card flex items-center gap-4 p-4 rounded-2xl w-60">
+<div class="bg-primary/20 p-2 rounded-xl text-primary border-2 border-dark-slate">
+<span class="material-symbols-outlined text-3xl">picture_as_pdf</span>
+</div>
+<div>
+<p class="text-base font-extrabold text-dark-slate">PDF Documents</p>
+<p class="text-xs font-bold text-dark-slate/60 uppercase tracking-wider">Lectures &amp; Books</p>
+</div>
+</div>
+<div class="sticker-card flex items-center gap-4 p-4 rounded-2xl w-60">
+<div class="bg-lavender p-2 rounded-xl text-dark-slate border-2 border-dark-slate">
+<span class="material-symbols-outlined text-3xl">play_circle</span>
+</div>
+<div>
+<p class="text-base font-extrabold text-dark-slate">YouTube Videos</p>
+<p class="text-xs font-bold text-dark-slate/60 uppercase tracking-wider">Tutorials &amp; Clips</p>
+</div>
+</div>
+<div class="sticker-card flex items-center gap-4 p-4 rounded-2xl w-60">
+<div class="bg-blue-100 p-2 rounded-xl text-blue-600 border-2 border-dark-slate">
+<span class="material-symbols-outlined text-3xl">language</span>
+</div>
+<div>
+<p class="text-base font-extrabold text-dark-slate">Web Articles</p>
+<p class="text-xs font-bold text-dark-slate/60 uppercase tracking-wider">Research &amp; Blogs</p>
+</div>
+</div>
+</div>
+<div class="hidden md:block order-2 absolute left-1/2 -translate-x-1/2 w-full max-w-md h-full pointer-events-none">
+<svg class="w-full h-full" fill="none" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+<path class="connector-path" d="M40 40 C 100 40, 100 120, 160 120" stroke-dasharray="8 8"></path>
+<path class="connector-path" d="M40 120 L 160 120" stroke-dasharray="8 8"></path>
+<path class="connector-path" d="M40 200 C 100 200, 100 120, 160 120" stroke-dasharray="8 8"></path>
+<circle cx="165" cy="120" fill="#1E293B" r="6"></circle>
+</svg>
+</div>
+<div class="order-3 sticker-card p-8 rounded-[2rem] w-full max-w-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-lavender/40 rounded-full -mr-16 -mt-16 border-2 border-dark-slate/10"></div>
+<div class="flex items-center gap-4 mb-8">
+<div class="bg-primary p-3 rounded-2xl text-white border-2 border-dark-slate shadow-sticker">
+<span class="material-symbols-outlined text-2xl">description</span>
+</div>
+<h3 class="font-extrabold text-xl text-dark-slate">Structured Note</h3>
+</div>
+<div class="space-y-5">
+<div class="h-3 w-1/2 bg-dark-slate/10 rounded-full"></div>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="text-primary text-xl font-black mt-[-4px]">✦</span>
+<div class="h-3 w-full bg-peach/50 border border-dark-slate/10 rounded-full"></div>
+</div>
+<div class="flex items-start gap-3">
+<span class="text-primary text-xl font-black mt-[-4px]">✦</span>
+<div class="h-3 w-4/5 bg-peach/50 border border-dark-slate/10 rounded-full"></div>
+</div>
+<div class="flex items-start gap-3">
+<span class="text-primary text-xl font-black mt-[-4px]">✦</span>
+<div class="h-3 w-11/12 bg-peach/50 border border-dark-slate/10 rounded-full"></div>
+</div>
+</div>
+<div class="h-3 w-1/3 bg-dark-slate/10 rounded-full mt-8"></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-10 bg-lavender/30 border-2 border-dark-slate border-dashed rounded-xl"></div>
+<div class="h-10 bg-lavender/30 border-2 border-dark-slate border-dashed rounded-xl"></div>
+</div>
+</div>
+<div class="mt-10 flex justify-center">
+<span class="text-xs uppercase tracking-[0.2em] font-black text-dark-slate/40">AI Brain Power</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto px-10 py-10">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex items-center gap-4 order-2 md:order-1">
+<div class="w-12 h-4 rounded-full bg-primary border-2 border-dark-slate shadow-sticker"></div>
+<div class="w-4 h-4 rounded-full bg-white border-2 border-dark-slate"></div>
+<div class="w-4 h-4 rounded-full bg-white border-2 border-dark-slate"></div>
+</div>
+<div class="flex items-center gap-6 order-1 md:order-2"> <a href="dashboard.html">
+<button class="text-lg font-extrabold text-dark-slate px-6 py-3 border-2 border-dark-slate rounded-2xl bg-white shadow-sticker hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-sticker-hover transition-all">
+                        Skip
+                    </button></a>
+<a href="onboarding2.html" class="group flex min-w-[180px] items-center justify-center gap-3 rounded-2xl h-16 px-8 bg-primary text-white text-xl font-black border-2 border-dark-slate shadow-sticker hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-sticker-hover transition-all active:scale-95">
+<span>Next</span></a>
+<span class="material-symbols-outlined text-2xl font-bold transition-transform group-hover:translate-x-2">arrow_forward</span>
+
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

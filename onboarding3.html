@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding: Personalization | QuickNoteML</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF6B6B",
+                        "creamy-peach": "#FFF0D9",
+                        "dark-slate": "#1E293B",
+                        "light-red": "#FF6B6B",
+                        "soft-lavender": "#E0E7FF"
+                    },
+                    fontFamily: {
+                        "display": ["Quicksand", "sans-serif"],
+                        "body": ["Nunito", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'sticker': '4px 4px 0px 0px #1E293B',
+                        'sticker-hover': '2px 2px 0px 0px #1E293B'
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-body bg-[#FFF0D9] text-[#1E293B];
+            }
+            h1, h2, h3, h4 {
+                @apply font-display;
+            }
+        }
+        .sticker-card {
+            @apply border-2 border-[#1E293B] shadow-sticker bg-white transition-all;
+        }
+        .sticker-card:hover:not(.no-hover) {
+            @apply translate-x-[2px] translate-y-[2px] shadow-sticker-hover;
+        }
+        .sticker-button {
+            @apply border-2 border-[#1E293B] shadow-sticker transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-sticker-hover;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            @apply appearance-none w-6 h-6 bg-[#FF6B6B] border-2 border-[#1E293B] rounded-full;
+        }
+        input[type="range"]::-moz-range-thumb {
+            @apply w-6 h-6 bg-[#FF6B6B] border-2 border-[#1E293B] rounded-full;
+        }
+    </style>
+    
+</head>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ---------- STUDY AREA BUTTONS ----------
+  const buttons = document.querySelectorAll(".study-btn");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => {
+        b.classList.remove("bg-[#FF6B6B]/10", "border-[#FF6B6B]");
+        const icon = b.querySelector(".material-symbols-outlined");
+        icon.classList.remove("text-[#FF6B6B]");
+        icon.classList.add("text-[#64748B]");
+      });
+
+      btn.classList.add("bg-[#FF6B6B]/10", "border-[#FF6B6B]");
+      const icon = btn.querySelector(".material-symbols-outlined");
+      icon.classList.remove("text-[#64748B]");
+      icon.classList.add("text-[#FF6B6B]");
+    });
+  });
+
+  // ---------- NOTES SLIDER ----------
+  const slider = document.getElementById("notesSlider");
+  const output = document.getElementById("notesCount");
+
+  slider.addEventListener("input", () => {
+    output.textContent = slider.value;
+  });
+
+});
+</script>
+
+<body class="min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b-2 border-[#1E293B] px-10 py-4 bg-white">
+<div class="flex items-center gap-4 text-[#1E293B]">
+<div class="size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">QuickNoteML</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[#1E293B] shadow-sticker-hover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkyabU8dWyp9SZaiEiZFxq5tnnHJ4OXkKEyQtpaKYfMAhvWToc9y6DEJ0HoLtw9qVWRjIbdjtK5Kwy6pSwTk371ZjPdnuiucfepwAX6O9OchfjomzK1CdPjzsoyaw6VocX0A1wk7u23QH5_TyGSJwbYd4IePX8TphoKZBFWFps3T7KIRVfRUv2Rntv_qb7V1hHo8nq1BIF8UF5a2lPmURw35OleQ20VgWOLByDDRcYcszhWUjthVW8ACuGzdz78_dqSKIjb0UP1rdK");'></div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-12 px-4">
+<div class="max-w-[800px] w-full flex flex-col gap-8">
+<div class="sticker-card no-hover p-6 rounded-2xl">
+<div class="flex flex-col gap-3">
+<div class="flex gap-6 justify-between items-center">
+<p class="font-display text-lg font-bold">Onboarding: Final Step</p>
+<p class="text-[#FF6B6B] font-bold">Step 3 of 3</p>
+</div>
+<div class="rounded-full bg-[#E5E7EB] border-2 border-[#1E293B] h-4 w-full overflow-hidden">
+<div class="h-full bg-[#FF6B6B]" style="width: 100%;"></div>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-[#64748B] text-sm font-semibold">Personalized Setup</p>
+<p class="text-[#64748B] text-sm font-semibold">100% Complete</p>
+</div>
+</div>
+</div>
+<div class="text-center py-4">
+<h1 class="text-[#1E293B] tracking-tight text-4xl md:text-5xl font-bold pb-4">Personalize Your AI Experience</h1>
+<p class="text-[#475569] text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+                        Tell us about your studies so QuickNoteML can optimize its language models and formatting for your specific needs.
+                    </p>
+</div>
+<div class="sticker-card no-hover p-8 rounded-2xl">
+<h3 class="text-xl font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FF6B6B] text-3xl">category</span>
+                        Primary Study Areas
+                    </h3>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<button class="study-btn sticker-card flex flex-col items-center justify-center p-6 rounded-xl"
+        data-icon="science">
+
+<span class="material-symbols-outlined text-4xl text-[#FF6B6B] mb-3">science</span>
+<span class="font-bold text-lg">Science</span>
+</button>
+<button class="study-btn sticker-card flex flex-col items-center justify-center p-6 rounded-xl"
+        data-icon="engineering">
+
+<span class="material-symbols-outlined text-4xl text-[#64748B] mb-3">engineering</span>
+<span class="font-bold text-lg text-[#1E293B]">Engineering</span>
+</button>
+<button class="study-btn sticker-card flex flex-col items-center justify-center p-6 rounded-xl"
+        data-icon="palette">
+
+<span class="material-symbols-outlined text-4xl text-[#64748B] mb-3">palette</span>
+<span class="font-bold text-lg text-[#1E293B]">Arts</span>
+</button>
+<button class="study-btn sticker-card flex flex-col items-center justify-center p-6 rounded-xl"
+        data-icon="payments">
+
+<span class="material-symbols-outlined text-4xl text-[#64748B] mb-3">payments</span>
+<span class="font-bold text-lg text-[#1E293B]">Business</span>
+</button>
+<button class="study-btn sticker-card flex flex-col items-center justify-center p-6 rounded-xl"
+        data-icon="medical_services">
+
+<span class="material-symbols-outlined text-4xl text-[#64748B] mb-3">medical_services</span>
+<span class="font-bold text-lg text-[#1E293B]">Medicine</span>
+</button>
+<button class="study-btn sticker-card flex flex-col items-center justify-center p-6 rounded-xl"
+        data-icon="gavel">
+
+<span class="material-symbols-outlined text-4xl text-[#64748B] mb-3">gavel</span>
+<span class="font-bold text-lg text-[#1E293B]">Law</span>
+</button>
+</div>
+</div>
+<div class="sticker-card no-hover p-8 rounded-2xl">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-2">
+<h3 class="text-xl font-bold flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FF6B6B] text-3xl">bolt</span>
+                                Daily Note Goal
+                            </h3>
+<p class="text-[#475569] font-medium">Setting a goal helps our AI prioritize your most important study topics.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex justify-between items-end">
+<span class="text-4xl font-bold text-[#FF6B6B]">
+  <span id="notesCount">5</span>
+  <span class="text-base font-bold text-[#64748B] uppercase tracking-widest ml-2">Notes / day</span>
+</span>
+
+<span class="text-sm bg-[#FFF1F1] text-[#FF6B6B] px-4 py-2 rounded-full font-bold border-2 border-[#1E293B]">Recommended for Full-time</span>
+</div>
+<input id="notesSlider" class="w-full h-3 bg-white border-2 border-[#1E293B] rounded-full appearance-none cursor-pointer accent-[#FF6B6B]"
+       type="range" min="1" max="10" value="5"/>
+
+<div class="flex justify-between text-sm text-[#1E293B] font-bold px-1">
+<span>1 NOTE</span>
+<span>5 NOTES</span>
+<span>10+ NOTES</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6 py-6">
+<div class="flex flex-row gap-4 w-full">
+    <a href="onboarding2.html">
+<button class="sticker-button flex-1 bg-[#E0E7FF] text-[#1E293B] font-display font-bold py-5 px-8 rounded-2xl flex items-center justify-center gap-3 text-2xl hover:bg-[#D1D5DB]">
+                            Back
+                        </button></a>
+<a href="dashboard.html" class="sticker-button flex-[2] bg-[#FF6B6B] text-white font-bold py-5 px-8 rounded-2xl flex items-center justify-center gap-3 text-2xl hover:bg-[#ff5252]">
+                            Finish 
+                            <span class="material-symbols-outlined text-3xl">arrow_forward</span>
+</a>
+</div>
+<p class="text-center text-[#64748B] font-semibold">
+                        Don't worry, you can update these preferences anytime in your Profile Settings.
+                    </p>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

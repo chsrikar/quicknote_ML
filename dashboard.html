@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickNoteML - Whimsical AI Study Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Nunito:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #D7BDE2;
+            --secondary: #FF6F61;
+            --secondary-dark: #e56458;
+            --bg-peach: #FFF0D9;
+            --text-main: #4A3F35;
+            --dark-slate: #1E293B;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-peach);
+            color: var(--text-main);
+        }
+        .font-display {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .sticker-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid var(--dark-slate);
+            box-shadow: 6px 6px 0px 0px var(--dark-slate);
+            border-radius: 2rem;
+        }
+        .sidebar-item-active {
+            background-color: var(--primary);
+            border: 2px solid var(--dark-slate);
+            box-shadow: 4px 4px 0px 0px var(--dark-slate);
+        }
+        .tile-hover {
+            transition: all 0.2s ease;
+        }
+        .tile-hover:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px var(--dark-slate);
+        }
+        .tile-hover:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px var(--dark-slate);
+        }
+        .doodle-border {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 2px solid var(--dark-slate);
+        }
+        .magic-btn-shadow {
+            border: 2px solid var(--dark-slate);
+            box-shadow: 0 8px 0 0 var(--dark-slate);
+        }
+        .magic-btn-shadow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 0 0 var(--dark-slate);
+        }
+        .magic-btn-shadow:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 0 var(--dark-slate);
+        }
+        .premium-box {
+            border: 2px solid var(--dark-slate);
+            box-shadow: 4px 4px 0px 0px var(--dark-slate);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D7BDE2",
+                        "secondary": "#FF6F61",
+                        "peach": "#FFF0D9",
+                        "dark-text": "#4A3F35",
+                        "slate-dark": "#1E293B"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen overflow-hidden">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-72 sticker-card m-4 mr-0 flex flex-col justify-between p-8 z-20">
+<div class="flex flex-col gap-10">
+<div class="flex items-center gap-4">
+<div class="bg-secondary size-12 rounded-2xl flex items-center justify-center text-white border-2 border-slate-dark shadow-[4px_4px_0px_0px_rgba(30,41,59,1)] rotate-3">
+<span class="material-symbols-outlined fill-1 text-3xl">draw</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-dark-text text-xl font-extrabold font-display leading-none tracking-tight">QuickNoteML</h1>
+<p class="text-secondary text-xs font-bold uppercase tracking-widest mt-1">Sticker Edition</p>
+</div>
+</div>
+<nav class="flex flex-col gap-3">
+<a class="flex items-center gap-4 px-5 py-3.5 rounded-2xl sidebar-item-active text-dark-text font-bold" href="#">
+<span class="material-symbols-outlined text-[24px]">cloud_queue</span>
+<p class="text-base">Home</p>
+</a>
+<a class="flex items-center gap-4 px-5 py-3.5 rounded-2xl hover:bg-white/60 transition-all group border-2 border-transparent" href="mynotes.html">
+<span class="material-symbols-outlined text-[24px] text-gray-400 group-hover:text-secondary">folder_open</span>
+<p class="text-gray-600 group-hover:text-dark-text text-base font-semibold">My Notes</p>
+</a>
+<a class="flex items-center gap-4 px-5 py-3.5 rounded-2xl hover:bg-white/60 transition-all group border-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[24px] text-gray-400 group-hover:text-secondary">rocket</span>
+<p class="text-gray-600 group-hover:text-dark-text text-base font-semibold">Activity</p>
+</a>
+<a class="flex items-center gap-4 px-5 py-3.5 rounded-2xl hover:bg-white/60 transition-all group border-2 border-transparent" href="general.html">
+<span class="material-symbols-outlined text-[24px] text-gray-400 group-hover:text-secondary">auto_fix_high</span>
+<p class="text-gray-600 group-hover:text-dark-text text-base font-semibold">Settings</p>
+</a>
+<a class="flex items-center gap-4 px-5 py-3.5 rounded-2xl hover:bg-white/60 transition-all group border-2 border-transparent" href="helpcenter.html">
+<span class="material-symbols-outlined text-[24px] text-gray-400 group-hover:text-secondary">settings_heart</span>
+<p class="text-gray-600 group-hover:text-dark-text text-base font-semibold">Help Center</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4 px-2">
+<div class="size-12 rounded-2xl bg-center bg-cover border-2 border-slate-dark shadow-[3px_3px_0px_0px_rgba(30,41,59,1)] rotate-3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBb99Hi_FxGlXMhrBTp2jJMykd67aBe48nSNzP3UDWgncsBuiZGi7OBzP6qFLQNAM4DSVdUkyaFPGMckoOrjjrYZ1aAc7YnQ8mwPh6QZ1TgCwh9EXCsWyTkjJNtOsrS4WPPAV8FjmuvB1M76K0UekVZQCRSwPkQY83VQfuYTD-sOItXLw_YCB-qB61076y258xOwesbwwIEN5X077TLE3UMlANgxw9i5wmU9zvo8tjeNiCECtHh_oU4ijgRBe18i7Kfq88pl3POJAA");'></div>
+<div class="flex flex-col">
+<p class="text-base font-extrabold leading-none text-dark-text">Alex Rivera</p>
+<p class="text-xs text-secondary font-bold">Dreamer Level</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto relative p-4">
+<div class="max-w-[1000px] mx-auto px-8 py-12 flex flex-col items-center">
+<div class="text-center mb-10 relative">
+<div class="absolute -top-8 -left-12 opacity-20 rotate-12">
+<span class="material-symbols-outlined text-6xl text-secondary">temp_preferences_custom</span>
+</div>
+<h2 class="text-dark-text text-6xl font-black font-display tracking-tight mb-6">
+                Turn Anything Into <span class="relative inline-block text-secondary">
+                    Notes
+                    <svg class="absolute -bottom-2 left-0 w-full" preserveAspectRatio="none" viewBox="0 0 100 10">
+<path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="#FF6F61" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</span>
+</h2>
+<p class="text-gray-600 text-xl font-semibold max-w-xl mx-auto leading-relaxed">
+                Sprinkle some AI magic on your documents, videos, and links to get perfectly structured notes instantly!
+            </p>
+</div>
+<div class="w-full max-w-3xl sticker-card p-10 mb-14 relative overflow-hidden transform scale-105 transition-all">
+    <!-- LINK INPUT -->
+<div id="linkInput">
+  <label class="text-2xl font-black font-display mb-4 block">The Magic Link</label>
+  <div class="relative">
+    <span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-secondary text-3xl">link</span>
+    <input
+      type="text"
+      placeholder="Paste that YouTube or Website link here..."
+      class="form-input w-full pl-16 pr-8 py-7 rounded-[1.5rem] border-2 border-slate-dark bg-white text-xl font-bold"
+    />
+  </div>
+</div>
+
+<!-- PDF INPUT -->
+<div id="pdfInput" class="hidden">
+  <label class="text-2xl font-black font-display mb-4 block">Upload your PDF</label>
+  <input
+    type="file"
+    accept=".pdf"
+    class="w-full p-6 rounded-[1.5rem] border-2 border-slate-dark bg-white text-lg font-bold"
+  />
+</div>
+
+<!-- TEXT INPUT -->
+<div id="textInput" class="hidden">
+  <label class="text-2xl font-black font-display mb-4 block">Enter your text here</label>
+  <textarea
+    rows="6"
+    placeholder="Write or paste your content here..."
+    class="w-full p-6 rounded-[1.5rem] border-2 border-slate-dark text-lg font-semibold"
+  ></textarea>
+</div>
+
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">edit_square</span>
+</div>
+
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full mb-16">
+<button onclick="showPDF()" class="sticker-card tile-hover p-8 flex flex-col items-center text-center gap-5 group">
+<div class="size-20 doodle-border bg-[#FFE8E6] text-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">menu_book</span>
+</div>
+<div>
+<h3 class="text-lg font-extrabold text-dark-text font-display">PDF Docs</h3>
+<p class="text-sm text-gray-500 font-bold">Drop your files</p>
+</div>
+</button>
+<button onclick="showLink()" class="sticker-card tile-hover p-8 flex flex-col items-center text-center gap-5 group">
+<div class="size-20 doodle-border bg-primary/20 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">movie_edit</span>
+</div>
+<div>
+<h3 class="text-lg font-extrabold text-dark-text font-display">YouTube</h3>
+<p class="text-sm text-gray-500 font-bold">Paste the link</p>
+</div>
+</button>
+<button onclick="showLink()" class="sticker-card tile-hover p-8 flex flex-col items-center text-center gap-5 group">
+<div class="size-20 doodle-border bg-emerald-50 text-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">public</span>
+</div>
+<div>
+<h3 class="text-lg font-extrabold text-dark-text font-display">Website</h3>
+<p class="text-sm text-gray-500 font-bold">Paste any URL</p>
+</div>
+</button>
+<button onclick="showText()" class="sticker-card tile-hover p-8 flex flex-col items-center text-center gap-5 group">
+<div class="size-20 doodle-border bg-amber-50 text-amber-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">stylus_note</span>
+</div>
+<div>
+<h3 class="text-lg font-extrabold text-dark-text font-display">Raw Text</h3>
+<p class="text-sm text-gray-500 font-bold">Write or paste</p>
+</div>
+</button>
+</div> <a href="aiprocessing.html">
+<button class="group relative px-24 py-9 bg-secondary text-white text-3xl font-black rounded-[2.5rem] magic-btn-shadow transition-all flex items-center gap-6">
+<span class="font-display">Magic Generate!</span>
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform text-5xl">auto_awesome</span>
+</button> </a>
+<div class="mt-20 flex flex-col items-center gap-8">
+<div class="flex flex-wrap justify-center items-center gap-12 opacity-80">
+<div class="flex items-center gap-3 bg-white px-5 py-2.5 rounded-full border-2 border-slate-dark shadow-[3px_3px_0px_0px_rgba(30,41,59,1)]">
+<span class="material-symbols-outlined text-secondary">mood</span>
+<span class="text-xs font-black uppercase tracking-widest text-dark-text">Fun Powered</span>
+</div>
+<div class="flex items-center gap-3 bg-white px-5 py-2.5 rounded-full border-2 border-slate-dark shadow-[3px_3px_0px_0px_rgba(30,41,59,1)]">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<span class="text-xs font-black uppercase tracking-widest text-dark-text">Super Safe</span>
+</div>
+<div class="flex items-center gap-3 bg-white px-5 py-2.5 rounded-full border-2 border-slate-dark shadow-[3px_3px_0px_0px_rgba(30,41,59,1)]">
+<span class="material-symbols-outlined text-secondary">rocket_launch</span>
+<span class="text-xs font-black uppercase tracking-widest text-dark-text">Turbo Fast</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed top-20 right-20 -z-10 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="fixed -bottom-10 left-10 -z-10 w-80 h-80 bg-secondary/15 blur-[120px] rounded-full pointer-events-none"></div>
+<span class="material-symbols-outlined absolute top-40 right-10 text-primary opacity-20 text-7xl select-none">pentagon</span>
+<span class="material-symbols-outlined absolute bottom-40 left-80 text-secondary opacity-20 text-7xl rotate-45 select-none">change_history</span>
+<span class="material-symbols-outlined absolute top-10 left-1/3 text-primary opacity-20 text-5xl select-none">blur_on</span>
+</main>
+</div>
+<script>
+  const linkInput = document.getElementById("linkInput");
+  const pdfInput = document.getElementById("pdfInput");
+  const textInput = document.getElementById("textInput");
+
+  function hideAll() {
+    linkInput.classList.add("hidden");
+    pdfInput.classList.add("hidden");
+    textInput.classList.add("hidden");
+  }
+
+  function showLink() {
+    hideAll();
+    linkInput.classList.remove("hidden");
+  }
+
+  function showPDF() {
+    hideAll();
+    pdfInput.classList.remove("hidden");
+  }
+
+  function showText() {
+    hideAll();
+    textInput.classList.remove("hidden");
+  }
+</script>
+
+</body></html>

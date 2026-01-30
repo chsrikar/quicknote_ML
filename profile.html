@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Whimsical Profile Page | QuickNoteML</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Nunito:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF7F50",
+                        "lavender": "#967BB6",
+                        "soft-lavender": "#D7BDE2",
+                        "peach": "#FFF0D9",
+                        "soft-white": "#FDFDFF",
+                        "dark-slate": "#1E293B",
+                        "sticker-red": "#FFB3BA",
+                    },
+                    fontFamily: {
+                        "display": ["Quicksand", "sans-serif"],
+                        "body": ["Nunito", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #FF7F50;
+            --lavender-color: #967BB6;
+            --soft-lavender: #D7BDE2;
+            --peach-bg: #FFF0D9;
+            --dark-slate: #1E293B;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--peach-bg);
+            background-image: radial-gradient(var(--lavender-color) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            background-opacity: 0.1;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .sticker-shadow {
+            box-shadow: 6px 6px 0px 0px var(--dark-slate);
+        }
+        .sticker-shadow-sm {
+            box-shadow: 4px 4px 0px 0px var(--dark-slate);
+        }
+        .sticker-border {
+            border: 2px solid var(--dark-slate);
+        }
+        .hover-lift:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px var(--dark-slate);
+        }
+        .doodle-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-[#4A3E3E]">
+<div class="doodle-overlay flex flex-wrap justify-around p-10">
+<span class="material-symbols-outlined text-6xl rotate-12">auto_stories</span>
+<span class="material-symbols-outlined text-8xl -rotate-12">edit_note</span>
+<span class="material-symbols-outlined text-7xl rotate-45">school</span>
+<span class="material-symbols-outlined text-9xl rotate-12">lightbulb</span>
+<span class="material-symbols-outlined text-5xl -rotate-45">draw</span>
+</div>
+<header class="sticky top-0 z-50 bg-[#FFF0D9]/90 backdrop-blur-md border-b-2 border-dashed border-lavender/30 px-4 md:px-10 lg:px-40 py-4">
+<div class="flex items-center justify-between whitespace-nowrap max-w-[1200px] mx-auto">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-9 bg-lavender/20 rounded-xl flex items-center justify-center">
+<svg class="size-6" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#4A3E3E] text-2xl font-bold tracking-tight font-display">QuickNoteML</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-[#D7BDE2] text-[#1E293B] border-2 border-[#1E293B] sticker-shadow-sm h-11 px-6 rounded-2xl font-bold text-sm transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(30,41,59,1)] active:translate-y-[1px] active:shadow-sm">
+                    Go back to dashboard
+                </button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-2xl size-11 border-2 border-[#1E293B] sticker-shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdm0HbECI8big0PHadmGmgN7awdop9hRnRiYGDMVD0bjl-I3Cu8boHBuPAe7alq8XH0v2QwFCkKO9sv8OkvkFklxvWzOf_1_gRUQVCV-eFtpVoofHG5g7rmKJ6YZnnkkACzU9yxIiMSocOAG_0usznVewMZ_zoBRMPS_3hL06Ve9CIZB1WyQFXZVbVNC3A0-vlNNYouuy8wvqIA9aV_sOwzPR4bZclN29GRiW86DFGJRaoXM6yO1ErIumpwj-jLYTEfWPn3Ar13aRf");'></div>
+</div>
+</div>
+</header>
+<main class="max-w-[800px] mx-auto px-4 py-12">
+<div class="text-center mb-10">
+<h1 class="text-4xl md:text-5xl font-black font-display text-dark-slate mb-2">My Profile</h1>
+<p class="text-lavender font-bold uppercase tracking-widest text-sm">Identity &amp; Settings</p>
+</div>
+<section class="bg-soft-white sticker-border sticker-shadow rounded-2xl p-8 mb-10 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl rotate-12">verified_user</span>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+<div class="relative">
+<div class="size-32 rounded-3xl border-2 border-dark-slate sticker-shadow-sm overflow-hidden bg-white">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdm0HbECI8big0PHadmGmgN7awdop9hRnRiYGDMVD0bjl-I3Cu8boHBuPAe7alq8XH0v2QwFCkKO9sv8OkvkFklxvWzOf_1_gRUQVCV-eFtpVoofHG5g7rmKJ6YZnnkkACzU9yxIiMSocOAG_0usznVewMZ_zoBRMPS_3hL06Ve9CIZB1WyQFXZVbVNC3A0-vlNNYouuy8wvqIA9aV_sOwzPR4bZclN29GRiW86DFGJRaoXM6yO1ErIumpwj-jLYTEfWPn3Ar13aRf"/>
+</div>
+<div class="absolute -bottom-2 -right-2 size-10 bg-primary text-white border-2 border-dark-slate rounded-full flex items-center justify-center sticker-shadow-sm">
+<span class="material-symbols-outlined text-xl">camera_alt</span>
+</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h2 class="text-3xl font-black font-display text-dark-slate">Alex Sterling</h2>
+<p class="text-lavender font-bold text-lg mb-4">alex.sterling@university.edu</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-3">
+<span class="px-4 py-1.5 bg-soft-lavender/30 border-2 border-dark-slate rounded-full text-xs font-black text-dark-slate flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">school</span>
+                            STUDENT
+                        </span>
+<span class="px-4 py-1.5 bg-primary/10 border-2 border-dark-slate rounded-full text-xs font-black text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+                            COLGEGE
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-soft-white sticker-border sticker-shadow rounded-2xl p-8 mb-10">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-3xl text-primary">psychology</span>
+<h3 class="text-2xl font-black font-display text-dark-slate">Learning Identity</h3>
+</div>
+<div class="space-y-8">
+<div>
+<p class="text-xs font-black uppercase text-lavender tracking-widest mb-4">Preferred Subjects</p>
+<div class="flex flex-wrap gap-3">
+<div class="bg-white border-2 border-dark-slate rounded-xl px-4 py-2 sticker-shadow-sm flex items-center gap-2 hover-lift cursor-default">
+<span class="text-2xl">⚛️</span>
+<span class="font-bold text-dark-slate">Physics</span>
+</div>
+<div class="bg-white border-2 border-dark-slate rounded-xl px-4 py-2 sticker-shadow-sm flex items-center gap-2 hover-lift cursor-default">
+<span class="text-2xl">📜</span>
+<span class="font-bold text-dark-slate">History</span>
+</div>
+<div class="bg-white border-2 border-dark-slate rounded-xl px-4 py-2 sticker-shadow-sm flex items-center gap-2 hover-lift cursor-default">
+<span class="text-2xl">🧬</span>
+<span class="font-bold text-dark-slate">Biology</span>
+</div>
+<button class="bg-peach border-2 border-dashed border-dark-slate/30 rounded-xl px-4 py-2 flex items-center gap-2 hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-lg">add</span>
+<span class="font-bold text-dark-slate/60">Add Subject</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<p class="text-xs font-black uppercase text-lavender tracking-widest mb-4">Note Style</p>
+<div class="bg-[#F9E8D0] border-2 border-dark-slate rounded-xl p-4 sticker-shadow-sm flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-dark-slate">format_list_bulleted</span>
+<div>
+<p class="font-black text-dark-slate">Structured</p>
+<p class="text-xs font-semibold text-dark-slate/60">Hierarchical &amp; Organized</p>
+</div>
+</div>
+</div>
+<div>
+<p class="text-xs font-black uppercase text-lavender tracking-widest mb-4">Difficulty Level</p>
+<div class="bg-soft-lavender border-2 border-dark-slate rounded-xl p-4 sticker-shadow-sm flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-dark-slate">trending_up</span>
+<div>
+<p class="font-black text-dark-slate">Intermediate</p>
+<p class="text-xs font-semibold text-dark-slate/60">Detailed Concept Maps</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 bg-white text-dark-slate border-2 border-dark-slate h-14 rounded-2xl font-black flex items-center justify-center gap-2 sticker-shadow-sm hover-lift active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined">edit</span>
+                Edit Profile
+            </button>
+<button class="flex-1 bg-white text-dark-slate border-2 border-dark-slate h-14 rounded-2xl font-black flex items-center justify-center gap-2 sticker-shadow-sm hover-lift active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined">lock</span>
+                Change Password
+            </button>
+<button class="flex-1 bg-sticker-red text-dark-slate border-2 border-dark-slate h-14 rounded-2xl font-black flex items-center justify-center gap-2 sticker-shadow-sm hover-lift active:translate-y-1 active:shadow-none transition-all">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </button>
+</section>
+<div class="mt-16 text-center">
+<p class="text-sm font-bold text-lavender/60 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">verified</span>
+                Profile is optimized for AI generation
+            </p>
+</div>
+</main>
+<footer class="bg-[#F9E8D0] border-t-2 border-dashed border-lavender/20 py-16 px-4 mt-20">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-3 text-primary mb-8">
+<div class="size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-[#4A3E3E] font-black text-2xl font-display">QuickNoteML</span>
+</div>
+<p class="text-[#8B7E7E] text-base font-semibold max-w-sm">
+                    Generating whimsical study magic for students around the world with the power of AI.
+                </p>
+</div>
+<div>
+<h4 class="text-[#4A3E3E] font-black text-sm mb-8 uppercase tracking-[0.2em] font-display">Playground</h4>
+<ul class="space-y-4 text-sm font-bold text-[#8B7E7E]">
+<li><a class="hover:text-primary transition-colors" href="#">Pricing Plans</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Study Stories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[#4A3E3E] font-black text-sm mb-8 uppercase tracking-[0.2em] font-display">Our World</h4>
+<ul class="space-y-4 text-sm font-bold text-[#8B7E7E]">
+<li><a class="hover:text-primary transition-colors" href="#">About the Magic</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Spells</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-16 pt-8 border-t border-lavender/10 text-center text-xs font-bold text-lavender/60 tracking-widest uppercase">
+            © 2024 QuickNoteML. Made with ✨ and coffee for students.
+        </div>
+</footer>
+
+</body></html>
